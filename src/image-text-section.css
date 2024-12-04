@@ -1,0 +1,30 @@
+/* Image with Text Section */
+.image-text-section {
+  display: flex;
+  align-items: center;
+  padding: 20px 20px 20px 0px;
+  margin: 0 auto;
+}
+
+.image-text-section img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-right: 20px;
+  object-fit: cover;
+}
+
+/* .image-text-section .text-content {
+  max-width: 60%;
+} */
+
+.image-text-section h2 {
+  font-size: 2rem;
+  margin-bottom: 0px;
+}
+
+.image-text-section p {
+  font-size: 1.2rem;
+  margin-top: 0px;
+  color: #555;
+}
