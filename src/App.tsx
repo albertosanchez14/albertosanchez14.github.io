@@ -1,67 +1,31 @@
-import { useState } from "react";
+import { Routes, Route, Link } from "react-router-dom";
 
 import "./App.css";
-import "./navbar.css";
-import "./image-text-section.css";
+import "./assets/navbar.css";
+
+import Home from "./home";
+import Projects from "./projects";
+import Blog from "./blog";
+import About from "./about";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
       <div className="navbar">
         <div className="nav-links">
-          <a href="/home">Home</a>
-          <a href="/projects">Projects</a>
-          <a href="/blog">Blog</a>
-          <a href="/about">About</a>
+          <Link to="/">Home</Link>
+          <Link to="/projects">Projects</Link>
+          <Link to="/blog">Blog</Link>
+          <Link to="/about">About</Link>
         </div>
       </div>
-      <div className="home-contents">
-      <section className="image-text-section">
-        <img src="src\assets\IMG_6590.JPG" alt="Example Image" />
-        <div className="text-content">
-          <h2>Alberto Sánchez del Álamo</h2>
-          <p>
-            Passionate developer.
-          </p>
-        </div>
-      </section>
-      <section className="hero" id="home">
-        <h1>Welcome to My Website</h1>
-        <p>Discover my projects, read my blog, and learn more about me.</p>
-      </section>
-      <section className="home-projects" id="home">
-        <h1>Projects</h1>
-        <p>Discover my projects, read my blog, and learn more about me.</p>
-        <div className="projects-display">
-          <div className="project">
-            <h2>Project 1</h2>
-            <p>Project description</p>
-          </div>
-          <div className="project">
-            <h2>Project 2</h2>
-            <p>Project description</p>
-          </div>
-          <div className="project">
-            <h2>Project 3</h2>
-            <p>Project description</p>
-          </div>
-          <div className="project">
-            <h2>Project 4</h2>
-            <p>Project description</p>
-          </div>
-          <div className="project">
-            <h2>Project 5</h2>
-            <p>Project description</p>
-          </div>
-          <div className="project">
-            <h2>Project 6</h2>
-            <p>Project description</p>
-          </div>
-        </div>
-      </section>
-      </div>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
     </>
   );
 }
