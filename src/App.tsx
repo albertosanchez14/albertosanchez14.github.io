@@ -17,6 +17,7 @@ function App() {
           <a href="/about">About</a>
         </div>
       </div>
+      <div className="home-contents">
       <section className="image-text-section">
         <img src="src\assets\IMG_6590.JPG" alt="Example Image" />
         <div className="text-content">
@@ -30,6 +31,11 @@ function App() {
         <h1>Welcome to My Website</h1>
         <p>Discover my projects, read my blog, and learn more about me.</p>
       </section>
+      <section className="home-projects" id="home">
+        <h1>Projects</h1>
+        <p>Discover my projects, read my blog, and learn more about me.</p>
+      </section>
+      </div>
     </>
   );
 }

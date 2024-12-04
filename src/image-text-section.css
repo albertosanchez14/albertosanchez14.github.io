@@ -1,9 +1,8 @@
 /* Image with Text Section */
 .image-text-section {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   padding: 20px 20px 20px 0px;
-  margin: 0 auto;
 }
 
 .image-text-section img {
@@ -21,10 +20,12 @@
 .image-text-section h2 {
   font-size: 2rem;
   margin-bottom: 0px;
+  transform: translateY(-10px)
 }
 
 .image-text-section p {
   font-size: 1.2rem;
   margin-top: 0px;
   color: #555;
+  transform: translateY(-10px)
 }
