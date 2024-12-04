@@ -34,6 +34,32 @@ function App() {
       <section className="home-projects" id="home">
         <h1>Projects</h1>
         <p>Discover my projects, read my blog, and learn more about me.</p>
+        <div className="projects-display">
+          <div className="project">
+            <h2>Project 1</h2>
+            <p>Project description</p>
+          </div>
+          <div className="project">
+            <h2>Project 2</h2>
+            <p>Project description</p>
+          </div>
+          <div className="project">
+            <h2>Project 3</h2>
+            <p>Project description</p>
+          </div>
+          <div className="project">
+            <h2>Project 4</h2>
+            <p>Project description</p>
+          </div>
+          <div className="project">
+            <h2>Project 5</h2>
+            <p>Project description</p>
+          </div>
+          <div className="project">
+            <h2>Project 6</h2>
+            <p>Project description</p>
+          </div>
+        </div>
       </section>
       </div>
     </>
