@@ -2,7 +2,7 @@
 .image-text-section {
   display: flex;
   align-items: flex-start;
-  padding: 20px 20px 20px 0px;
+  /* padding: 20px 20px 20px 0px; */
 }
 
 .image-text-section img {

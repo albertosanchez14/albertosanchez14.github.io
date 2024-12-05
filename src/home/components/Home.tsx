@@ -1,4 +1,7 @@
+import { Link } from "react-router-dom";
+
 import "../image-text-section.css";
+import "../sections.css";
 
 export default function Home() {
   return (
@@ -11,7 +14,7 @@ export default function Home() {
         </div>
       </section>
       <section className="hero" id="home">
-        <h1>Welcome to My Website</h1>
+        <h2>Welcome to My Website</h2>
         <p>Discover my projects, read my blog, and learn more about me.</p>
       </section>
       <section className="home-projects" id="home">
@@ -30,17 +33,24 @@ export default function Home() {
             <h2>Project 3</h2>
             <p>Project description</p>
           </div>
-          <div className="project">
-            <h2>Project 4</h2>
-            <p>Project description</p>
+        </div>
+        <Link to="/projects">See more</Link>
+      </section>
+      <section className="home-blog">
+        <h1>Blog</h1>
+        <p>Discover my projects, read my blog, and learn more about me.</p>
+        <div className="blog-posts">
+          <div className="blog-post">
+            <h2>Blog Post 1</h2>
+            <p>Blog post content</p>
           </div>
-          <div className="project">
-            <h2>Project 5</h2>
-            <p>Project description</p>
+          <div className="blog-post">
+            <h2>Blog Post 2</h2>
+            <p>Blog post content</p>
           </div>
-          <div className="project">
-            <h2>Project 6</h2>
-            <p>Project description</p>
+          <div className="blog-post">
+            <h2>Blog Post 3</h2>
+            <p>Blog post content</p>
           </div>
         </div>
       </section>
