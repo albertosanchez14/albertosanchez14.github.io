@@ -31,7 +31,7 @@
   flex-direction: column;
   align-items: flex-start;
   /* width: 250px; */
-  width: calc(33.333% - 3em); /* Ensures 3 projects per row, adjusts for spacing */
+  width: calc(33.333% - 3.2em); /* Ensures 3 projects per row, adjusts for spacing */
   height: 250px;
   padding: 1em;
   margin: 0.5em;
@@ -46,9 +46,14 @@
   }
 }
 
+.project:hover {
+  background-color: #333;
+  border: 1px solid #646cff;
+}
+
 @media (max-width: 900px) {
   .project {
-    width: calc(50% - 3em); /* 2 projects per row on smaller screens */
+    width: calc(50% - 3.2em); /* 2 projects per row on smaller screens */
   }
 }
 

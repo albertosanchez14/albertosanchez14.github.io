@@ -28,6 +28,14 @@
 .home-blog-title {
   margin-top: 0.2em;
   margin-bottom: 0px;
+
+  a:hover {
+    color: #646cff;
+  }
+}
+
+.home-blog-title:hover {
+  color: #646cff;
 }
 
 .home-blog-description {
