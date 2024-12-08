@@ -24,17 +24,35 @@
   align-self: flex-end;
 }
 
+.home-projects > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex-grow: 1; /* Allow this div to grow and take available space */
+  a {
+    align-self: flex-end;
+    margin-right: 0.5em;
+    color: #aaaaaa;
+  }
+  a:hover {
+    color: white;
+  }
+}
+
 .projects-display {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  gap: 0em; /* Adds some spacing between the items */
+  width: 100%; /* Ensures the container takes full width */
 }
 
 .project {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 250px;
+  /* width: 250px; */
+  width: calc(33.333% - 3em); /* Ensures 3 projects per row, adjusts for spacing */
   height: 250px;
   padding: 1em;
   margin: 0.5em;
@@ -46,6 +64,18 @@
   
   h2 {
     margin: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .project {
+    width: calc(50% - 3em); /* 2 projects per row on smaller screens */
+  }
+}
+
+@media (max-width: 600px) {
+  .project {
+    width: calc(100% - 3em); /* 1 project per row on very small screens */
   }
 }
 

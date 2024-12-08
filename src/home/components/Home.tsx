@@ -20,21 +20,23 @@ export default function Home() {
       <section className="home-projects" id="home">
         <h1>Projects</h1>
         <p>Discover my projects, read my blog, and learn more about me.</p>
-        <div className="projects-display">
-          <div className="project">
-            <h2>Project 1</h2>
-            <p>Project description</p>
+        <div>
+          <div className="projects-display">
+            <div className="project">
+              <h2>Project 1</h2>
+              <p>Project description</p>
+            </div>
+            <div className="project">
+              <h2>Project 2</h2>
+              <p>Project description</p>
+            </div>
+            <div className="project">
+              <h2>Project 3</h2>
+              <p>Project description</p>
+            </div>
           </div>
-          <div className="project">
-            <h2>Project 2</h2>
-            <p>Project description</p>
-          </div>
-          <div className="project">
-            <h2>Project 3</h2>
-            <p>Project description</p>
-          </div>
+          <Link to="/projects">See more</Link>
         </div>
-        <Link to="/projects">See more</Link>
       </section>
       <section className="home-blog">
         <h1>Blog</h1>
