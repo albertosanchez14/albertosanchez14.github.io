@@ -32,7 +32,6 @@ function App() {
         <div className="footer-content">
           {/* <!-- Contact Section --> */}
           <div className="contact-info">
-            <h3>Contact</h3>
             <a
               href="https://linkedin.com/in/your-profile"
               target="_blank"
@@ -55,7 +54,6 @@ function App() {
           </div>
           {/* <!-- Navigation Links --> */}
           <div className="footer-links">
-            <h3>Quick Links</h3>
             <ul>
               <li>
                 <a href="#home">Home</a>

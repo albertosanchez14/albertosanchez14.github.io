@@ -1,15 +1,14 @@
 .site-footer {
-  /* background-color: #1a1a1a; */
-  color: white;
   padding: 2em 1em 1em 1em;
   text-align: center;
 }
 
 .footer-content {
   display: flex;
-  /* justify-content: space-around; */
-  flex-wrap: wrap;
-  gap: 2em;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8em;
+  padding-top: 1em;
   margin-bottom: 1em;
   border-top: 1px solid #333;
 }
@@ -17,7 +16,7 @@
 .contact-info,
 .footer-links {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
 }
 
@@ -45,6 +44,8 @@
 }
 
 .footer-links ul {
+  display: flex;
+  flex-direction: row;
   list-style: none;
   padding: 0px;
   margin: 0px;
