@@ -15,7 +15,19 @@ export default function Home() {
       </section>
       <section className="hero" id="home">
         <h2>Welcome to My Website</h2>
-        <p>Discover my projects, read my blog, and learn more about me.</p>
+        <p>
+          Discover my projects, read my blog, and learn more about me. Lorem
+          ipsum dolor sit amet, consectetur adipiscing elit. Quisque facilisis
+          luctus sapien, sit amet sagittis lacus auctor pellentesque. Vivamus
+          sit amet viverra nisl, sed consectetur risus.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+          facilisis luctus sapien, sit amet sagittis lacus auctor pellentesque.
+          Vivamus sit amet viverra nisl, sed consectetur risus. Etiam egestas
+          ultrices lacus, lacinia euismod urna venenatis at. Proin aliquet
+          rutrum sem vitae scelerisque. 
+        </p>
       </section>
       <section className="home-projects" id="home">
         <h1>Projects</h1>
