@@ -1,0 +1,35 @@
+.home-blog {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-blog > h1 {
+  margin-bottom: 0px;
+  display: flex;
+}
+
+.blog-posts {
+  margin-top: 0.5em;
+  margin-left: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.blog-post {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 1em;
+  span {
+    color: #aaaaaa;
+  }
+}
+
+.home-blog-title {
+  margin-top: 0.2em;
+  margin-bottom: 0px;
+}
+
+.home-blog-description {
+  margin-top: 0.2em;
+}

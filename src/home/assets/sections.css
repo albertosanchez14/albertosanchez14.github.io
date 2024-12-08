@@ -1,0 +1,8 @@
+.see-more {
+  align-self: flex-end;
+  margin-right: 0.5em;
+  color: #aaaaaa;
+}
+.see-more:hover {
+  color: white;
+}

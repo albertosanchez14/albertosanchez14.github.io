@@ -2,7 +2,6 @@
 .image-text-section {
   display: flex;
   align-items: flex-start;
-  /* padding: 20px 20px 20px 0px; */
 }
 
 .image-text-section img {
@@ -12,10 +11,6 @@
   margin-right: 20px;
   object-fit: cover;
 }
-
-/* .image-text-section .text-content {
-  max-width: 60%;
-} */
 
 .image-text-section h2 {
   /* font-size: 2rem; */
