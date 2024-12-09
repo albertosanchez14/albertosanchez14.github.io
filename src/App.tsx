@@ -32,19 +32,19 @@ function App() {
         <div className="footer-content">
           {/* <!-- Contact Section --> */}
           <div className="contact-info">
+            <a href="mailto:alberto.sanchez.delalamo@gmail.com" aria-label="Email">
+              <i className="fas fa-envelope"></i>
+            </a>
             <a
-              href="https://linkedin.com/in/your-profile"
+              href="https://linkedin.com/in/alberto-sanchez-del-alamo"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
             >
               <i className="fab fa-linkedin"></i>
             </a>
-            <a href="mailto:your-email@example.com" aria-label="Email">
-              <i className="fas fa-envelope"></i>
-            </a>
             <a
-              href="https://github.com/your-username"
+              href="https://github.com/albertosanchez14"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
@@ -59,13 +59,13 @@ function App() {
                 <a href="#home">Home</a>
               </li>
               <li>
-                <a href="#projects">Projects</a>
+                <Link to="/projects">Projects</Link>
               </li>
               <li>
-                <a href="#blog">Blog</a>
+                <Link to="/blog">Blog</Link>
               </li>
               <li>
-                <a href="#about">About</a>
+                <Link to="/about">About</Link>
               </li>
             </ul>
           </div>
