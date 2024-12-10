@@ -22,8 +22,8 @@
   max-width: calc(50% - 1rem); /* Ensure max width aligns with flex */
   height: 360px; /* Fixed height for each project */
   border-radius: 1rem;
-  border: 1px solid #1a1a1a;
-  background-color: #1a1a1a;
+  border: 1px solid hsl(240, 6%, 20%);
+  background-color: hsl(240, 6%, 20%);
   overflow: hidden;
 
   display: flex;

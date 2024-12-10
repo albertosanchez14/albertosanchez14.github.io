@@ -6,7 +6,7 @@ export default function HomeBlog() {
   return (
     <section className="home-blog">
       <h1>Blog</h1>
-      <p>Discover my projects, read my blog, and learn more about me.</p>
+      <p>Here are some of my latest blog posts:</p>
       <ul className="blog-posts">
         <li className="blog-post">
           <span>Dec 8, 2024</span>

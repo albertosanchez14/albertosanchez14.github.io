@@ -6,6 +6,16 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
+  
+  background: rgb(14,19,61);
+  background: linear-gradient(90deg, rgba(14,19,61,1) 0%, rgba(27,89,115,1) 60%, rgba(27,89,115,1) 100%, rgba(2,0,36,1) 100%);
+  
+  background: rgb(14,19,61);
+  background: linear-gradient(90deg, rgba(14,19,61,1) 0%, rgba(23,67,85,1) 60%, rgba(23,67,85,1) 100%, rgba(2,0,36,1) 100%);
+
+  background: radial-gradient(circle at 50% 50%, #0c185b, #111e4d, #141f3f, #151c32, #131824, #0e1117, #060708, #000000);
+  background: radial-gradient(circle at 50% 50%, #290b5b, #26164d, #23193f, #1e1932, #181625, #111017, #070708, #000000);
+  /* background: radial-gradient(circle at 50% 50%, #290b5b, #221147, #1b1136, #140f26, #0e0b19, #07060c, #020203, #000000); */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

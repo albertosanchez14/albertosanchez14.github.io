@@ -36,8 +36,8 @@
   padding: 1em;
   margin: 0.5em;
   border-radius: 1em;
-  border: 1px solid #1a1a1a;
-  background-color: #1a1a1a;
+  border: 1px solid hsl(240, 6%, 20%);
+  background-color: hsl(240, 6%, 20%);
   color: white;
   text-align: center;
   transition: background-color 300ms;

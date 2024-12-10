@@ -8,16 +8,13 @@ export default function Hero() {
         <img src="src\assets\IMG_6590.JPG" alt="Example Image" />
         <div className="text-content">
           <h2>Alberto Sánchez del Álamo</h2>
-          <p>Passionate developer.</p>
+          <p>Fullstack Developer</p>
         </div>
       </section>
       <section className="hero" id="home">
         <h2>Welcome to My Website</h2>
         <p>
-          Discover my projects, read my blog, and learn more about me. Lorem
-          ipsum dolor sit amet, consectetur adipiscing elit. Quisque facilisis
-          luctus sapien, sit amet sagittis lacus auctor pellentesque. Vivamus
-          sit amet viverra nisl, sed consectetur risus.
+          Fullstack Developer | Software Engineer | Computer Engineering Student
         </p>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
