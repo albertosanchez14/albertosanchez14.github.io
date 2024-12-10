@@ -1,4 +1,4 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useLocation } from "react-router-dom";
 
 import "./assets/App.css";
 import "./assets/navbar.css";
@@ -10,14 +10,28 @@ import Blog from "./blog";
 import About from "./about";
 
 function App() {
+  const location = useLocation();
+
+  const checkLocation = (path: string) => {
+    return location.pathname === path ? "selected" : "unselected";
+  };
+
   return (
     <>
       <div className="navbar">
         <div className="nav-links">
-          <Link to="/">Home</Link>
-          <Link to="/projects">Projects</Link>
-          <Link to="/blog">Blog</Link>
-          <Link to="/about">About</Link>
+          <Link to="/" className={checkLocation("/")}>
+            Home
+          </Link>
+          <Link to="/projects" className={checkLocation("/projects")}>
+            Projects
+          </Link>
+          <Link to="/blog" className={checkLocation("/blog")}>
+            Blog
+          </Link>
+          <Link to="/about" className={checkLocation("/about")}>
+            About
+          </Link>
         </div>
       </div>
 
@@ -32,7 +46,10 @@ function App() {
         <div className="footer-content">
           {/* <!-- Contact Section --> */}
           <div className="contact-info">
-            <a href="mailto:alberto.sanchez.delalamo@gmail.com" aria-label="Email">
+            <a
+              href="mailto:alberto.sanchez.delalamo@gmail.com"
+              aria-label="Email"
+            >
               <i className="fas fa-envelope"></i>
             </a>
             <a
