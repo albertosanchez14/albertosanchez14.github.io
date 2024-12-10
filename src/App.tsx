@@ -4,6 +4,7 @@ import "./assets/App.css";
 import "./assets/navbar.css";
 import "./assets/footer.css";
 
+import ScrollToTop from "./utils"
 import Home from "./home";
 import Projects from "./projects";
 import Blog from "./blog";
@@ -18,6 +19,7 @@ function App() {
 
   return (
     <>
+      <ScrollToTop />
       <div className="navbar">
         <div className="nav-links">
           <Link to="/" className={checkLocation("/")}>
