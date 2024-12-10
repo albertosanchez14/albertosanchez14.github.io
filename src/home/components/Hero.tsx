@@ -12,16 +12,17 @@ export default function Hero() {
         </div>
       </section>
       <section className="hero" id="home">
-        <h2>Welcome to My Website</h2>
+        {/* <h2>Welcome to My Website</h2> */}
         <p>
-          Fullstack Developer | Software Engineer | Computer Engineering Student
+          Computer Engineering student at University Carlos III of Madrid.{" "}
+          <br />
+          Previously at University of Waterloo. <br />
+          Currently Developer @ STAR UC3M.
         </p>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-          facilisis luctus sapien, sit amet sagittis lacus auctor pellentesque.
-          Vivamus sit amet viverra nisl, sed consectetur risus. Etiam egestas
-          ultrices lacus, lacinia euismod urna venenatis at. Proin aliquet
-          rutrum sem vitae scelerisque.
+          Welcome to my website! I'm a Fullstack Developer with a passion for
+          building innovative software solutions that solve real-world problems.
+          Feel free to explore my projects, read my blog, or learn more about me.
         </p>
       </section>
     </>
