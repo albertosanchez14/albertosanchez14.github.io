@@ -8,12 +8,14 @@ export default function Projects() {
       <div>
         <div className="projects-display">
           <div className="project">
-            <img src="images/project-1.jpg" alt="Project 1" />
-            <h2>Project 1</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-              eget felis eget nunc.
-            </p>
+            <div className="project-content">
+              <h2>Shape Editing Web App</h2>
+              <img src="src/projects/assets/a3-screencap.png" alt="Project 1" />
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+                eget felis eget nunc.
+              </p>
+            </div>
           </div>
           <div className="project">
             <img src="images/project-2.jpg" alt="Project 2" />

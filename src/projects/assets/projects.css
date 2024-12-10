@@ -24,22 +24,40 @@
   border-radius: 1rem;
   border: 1px solid #1a1a1a;
   background-color: #1a1a1a;
-  /* border: 1px solid #e0e0e0;  */
-  text-align: center; /* Align content inside each project */
   overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Enable absolute positioning of children */
 }
 
 .project img {
-  width: 100%; /* Ensure images are responsive */
-  height: auto;
+  max-width: 300px;
+  object-fit: contain;
 }
 
-.project h2 {
-  margin: 0.5rem 0;
+.project-content h2,
+.project-content p {
+  position: absolute; /* Position relative to the .project container */
+  color: white; /* Ensure text is readable */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8); /* Add contrast for readability */
+  margin: 0;
+  padding: 0.5rem 1rem 0.5rem 1rem; /* Add padding to text */
+  left: 0rem;
 }
 
-.project p {
-  padding: 0.5rem;
+.project-content h2 {
+  top: 0.5rem; /* Place at the top */
+  border-radius: 0.5rem;
+  /* padding: 0.5rem 1rem; */
+}
+
+.project-content p {
+  bottom: 0.5rem; /* Place at the bottom */
+  border-radius: 0.5rem;
+  /* padding: 0.5rem 1rem; */
+  font-size: 0.9rem;
 }
 
 .project:hover {
