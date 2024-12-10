@@ -8,20 +8,20 @@ export default function HomeProjects() {
       <h1>Projects</h1>
       <p>Discover my projects, read my blog, and learn more about me.</p>
       <div>
-        <div className="projects-display">
-          <Link to="/project/project1" className="project">
+        <div className="home-projects-display">
+          <Link to="/project/project1" className="mini-project">
             <div>
               <h2>Project 1</h2>
               <p>Project description</p>
             </div>
           </Link>
-          <Link to="/project/project2" className="project">
+          <Link to="/project/project2" className="mini-project">
             <div>
               <h2>Project 2</h2>
               <p>Project description</p>
             </div>
           </Link>
-          <Link to="/project/project3" className="project">
+          <Link to="/project/project3" className="mini-project">
             <div>
               <h2>Project 3</h2>
               <p>Project description</p>

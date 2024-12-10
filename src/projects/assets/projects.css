@@ -1,0 +1,56 @@
+.projects {
+  display: flex;
+  flex-direction: column;
+}
+
+.projects > h1 {
+  margin: 0;
+}
+
+.projects-display {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap to the next line */
+  justify-content: center; /* Centers the items */
+  gap: 1rem; /* Adds space between items */
+  max-width: 64rem; /* Maximum width of the container */
+  margin: 0 auto; /* Centers the section */
+  padding: 1rem 0rem;
+}
+
+.project {
+  flex: 1 1 calc(50% - 1rem); /* Take 50% width minus the gap */
+  max-width: calc(50% - 1rem); /* Ensure max width aligns with flex */
+  height: 360px; /* Fixed height for each project */
+  border-radius: 1rem;
+  border: 1px solid #1a1a1a;
+  background-color: #1a1a1a;
+  /* border: 1px solid #e0e0e0;  */
+  text-align: center; /* Align content inside each project */
+  overflow: hidden;
+}
+
+.project img {
+  width: 100%; /* Ensure images are responsive */
+  height: auto;
+}
+
+.project h2 {
+  margin: 0.5rem 0;
+}
+
+.project p {
+  padding: 0.5rem;
+}
+
+.project:hover {
+  background-color: #333;
+  border: 1px solid #646cff;
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+  .project {
+    flex: 1 1 100%; /* Take full width on small screens */
+    max-width: 100%;
+  }
+}
