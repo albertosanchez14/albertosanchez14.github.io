@@ -9,29 +9,10 @@ export default function Projects() {
       <p>Here are some of the projects I've worked on:</p> */}
       <div>
         <div className="projects-display">
-          <Link to="/project/project1" className="project">
-            <div className="project-content">
-              <h2>Shape Editing Web App</h2>
-              <img src="src/projects/assets/a3-screencap.png" alt="Project 1" />
-              <div className="project-technologies">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" />
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" />
-              </div>
-            </div>
-          </Link>
-          <Link to="/project/project2" className="project">
-            <div className="project-content">
-              <h2>VHDL Simple Compiler</h2>
-              <img src="src/projects/assets/compiler" alt="Project 2" />
-              <div className="project-technologies">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" />
-              </div>
-            </div>
-          </Link>
           <Link to="/project/project3" className="project">
             <div className="project-content">
               <h2>Oktopus API</h2>
-              <img src="src/projects/assets/oktopus" alt="Project 3" />
+              <img src="src/projects/assets/oktopus" alt="Oktopus Pic" />
               <div className="project-technologies">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" />
@@ -43,7 +24,26 @@ export default function Projects() {
               </div>
             </div>
           </Link>
-          <Link to="/project/project4" className="project">
+          <Link to="/project/project2" className="project">
+            <div className="project-content">
+              <h2>VHDL Simple Compiler</h2>
+              <img src="src/projects/assets/compiler" alt="Compiler Pic" />
+              <div className="project-technologies">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" />
+              </div>
+            </div>
+          </Link>
+          <Link to="/project/project1" className="project">
+            <div className="project-content">
+              <h2>Shape Editing Web App</h2>
+              <img src="src/projects/assets/a3-screencap.png" alt="ts+react" />
+              <div className="project-technologies">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" />
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" />
+              </div>
+            </div>
+          </Link>
+          <Link to="/project/project4" className="project" id="soon">
             <div className="project-content">
               <h2>Coming Soon...</h2>
               {/* <img src="src/projects/assets/project4" alt="Project 4" /> */}

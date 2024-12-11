@@ -75,7 +75,7 @@ function App() {
           <div className="footer-links">
             <ul>
               <li>
-                <a href="#home">Home</a>
+                <Link to="/">Home</Link>
               </li>
               <li>
                 <Link to="/projects">Projects</Link>

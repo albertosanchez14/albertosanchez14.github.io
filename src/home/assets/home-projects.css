@@ -28,8 +28,10 @@
 
 .mini-project {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Enable absolute positioning of children */
+  
   /* width: 250px; */
   width: calc(33.333% - 3.2em); /* Ensures 3 projects per row, adjusts for spacing */
   height: 250px;
@@ -37,7 +39,7 @@
   margin: 0.5em;
   border-radius: 1em;
   border: 1px solid hsl(240, 6%, 20%);
-  background-color: hsl(240, 6%, 20%);
+  background-color: rgb(46, 47, 51, 0.9);
   color: white;
   text-align: center;
   transition: background-color 300ms;
@@ -51,11 +53,47 @@
   h2 {
     margin: 0;
   }
+
+  img {
+    max-width: 230px;
+    object-fit: contain;
+  }
 }
 
 .mini-project:hover {
   background-color: #333;
   border: 1px solid #646cff;
+}
+
+.mini-project-content h2,
+.mini-project-content div {
+  position: absolute; /* Position relative to the .project container */
+  color: white; /* Ensure text is readable */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8); /* Add contrast for readability */
+  margin: 0;
+  padding: 0.5rem 1rem 0.5rem 1rem; /* Add padding to text */
+  left: 0rem;
+}
+
+.mini-project-content h2 {
+  top: 0.5rem; /* Place at the top */
+  border-radius: 0.5rem;
+  /* padding: 0.5rem 1rem; */
+}
+
+.mini-project-content div {
+  bottom: 0.5rem; /* Place at the bottom */
+  border-radius: 0.5rem;
+  width: calc(100% - 2rem); /* Full width minus padding */
+  /* padding: 0.5rem 1rem; */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.mini-project-technologies img, .mini-project-technologies svg {
+  max-width: 20px;
+  margin-left: 0.5rem;
 }
 
 @media (max-width: 900px) {
