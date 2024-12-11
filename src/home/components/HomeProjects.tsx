@@ -36,7 +36,7 @@ export default function HomeProjects() {
           <Link to="/project/project2" className="mini-project">
             <div className="mini-project-content">
               <h2>Shape Editing Web App</h2>
-              <img src="src/projects/assets/a3-screencap.png" alt="Project 1" />
+              <img src="/a3-screencap.png" alt="Project 1" />
               <div className="mini-project-technologies">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" />
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" />

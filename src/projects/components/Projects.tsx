@@ -36,7 +36,7 @@ export default function Projects() {
           <Link to="/project/project1" className="project">
             <div className="project-content">
               <h2>Shape Editing Web App</h2>
-              <img src="src/projects/assets/a3-screencap.png" alt="ts+react" />
+              <img src="./a3-screencap.png" alt="ts+react" />
               <div className="project-technologies">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" />
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" />

@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <>
       <section className="image-text-section">
-        <img src="src\assets\IMG_6590.JPG" alt="Example Image" />
+        <img src="./IMG_6590.JPG" alt="Example Image" />
         <div className="text-content">
           <h2>Alberto Sánchez del Álamo</h2>
           <p>Fullstack Developer</p>
