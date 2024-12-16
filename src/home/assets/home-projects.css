@@ -107,3 +107,15 @@
     width: calc(100% - 3em); /* 1 project per row on very small screens */
   }
 }
+
+#okt_logo {
+  max-width: 300px;
+  width: 300px;
+  height: 300px;
+}
+
+#vhdl_to_java {
+  max-width: 300px;
+  width: 170px;
+  height: 170px;
+}

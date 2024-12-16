@@ -88,3 +88,7 @@
     max-width: 100%;
   }
 }
+
+#vhdl_to_java_big {
+  max-width: 250px;
+}

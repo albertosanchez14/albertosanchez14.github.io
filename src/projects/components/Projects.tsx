@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import "../assets/projects.css";
 
 export default function Projects() {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault();
+  };
+
   return (
     <section className="projects">
       {/* <h1>Projects</h1>
@@ -12,7 +16,7 @@ export default function Projects() {
           <Link to="/project/project3" className="project">
             <div className="project-content">
               <h2>Oktopus API</h2>
-              <img src="src/projects/assets/oktopus" alt="Oktopus Pic" />
+              <img src="/oktopus_logo.svg" alt="Oktopus Pic" />
               <div className="project-technologies">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" />
@@ -27,7 +31,11 @@ export default function Projects() {
           <Link to="/project/project2" className="project">
             <div className="project-content">
               <h2>VHDL Simple Compiler</h2>
-              <img src="src/projects/assets/compiler" alt="Compiler Pic" />
+              <img
+                src="/vhdl_to_java.webp"
+                alt="Compiler Pic"
+                id="vhdl_to_java_big"
+              />
               <div className="project-technologies">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" />
               </div>
@@ -43,7 +51,12 @@ export default function Projects() {
               </div>
             </div>
           </Link>
-          <Link to="/project/project4" className="project" id="soon">
+          <Link
+            to="/project/project4"
+            className="project"
+            id="soon"
+            onClick={handleClick}
+          >
             <div className="project-content">
               <h2>Coming Soon...</h2>
               {/* <img src="src/projects/assets/project4" alt="Project 4" /> */}

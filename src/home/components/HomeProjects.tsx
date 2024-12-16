@@ -12,7 +12,7 @@ export default function HomeProjects() {
           <Link to="/project/project1" className="mini-project">
             <div className="mini-project-content">
               <h2>Oktopus API</h2>
-              <img src="src/projects/assets/oktopus.png" alt="Oktopus Pic" />
+              <img src="/oktopus_logo.svg" alt="Oktopus Pic" id="okt_logo"/>
               <div className="mini-project-technologies">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"/>
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" />
@@ -27,7 +27,7 @@ export default function HomeProjects() {
           <Link to="/project/project2" className="mini-project">
             <div className="mini-project-content">
               <h2>VHDL Simple Compiler</h2>
-              <img src="src/projects/assets/compiler.png" alt="Compiler Pic" />
+              <img src="/vhdl_to_java.webp" alt="Compiler Pic" id="vhdl_to_java"/>
               <div className="mini-project-technologies">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" />
               </div>
