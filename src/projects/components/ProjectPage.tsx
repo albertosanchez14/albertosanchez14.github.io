@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 import "../styles/project-page.css";
 
 import { ProjectType } from "../../utils/types";
