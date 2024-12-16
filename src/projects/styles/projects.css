@@ -92,3 +92,8 @@
 #vhdl_to_java_big {
   max-width: 250px;
 }
+
+.project.disabled {
+  pointer-events: none;
+  opacity: 0.7;
+}
