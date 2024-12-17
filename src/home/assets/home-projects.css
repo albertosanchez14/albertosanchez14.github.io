@@ -108,10 +108,10 @@
   }
 }
 
-#okt_logo {
-  max-width: 300px;
-  width: 300px;
-  height: 300px;
+#oktopus-api {
+  max-width: 200px;
+  width: 250px;
+  height: 250px;
 }
 
 #vhdl_to_java {
