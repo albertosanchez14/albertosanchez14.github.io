@@ -1,10 +1,10 @@
 .home-contents {
-  margin-left: 20px;
+  /* margin-left: 20px; */
 }
 
 .see-more {
   align-self: flex-end;
-  margin-right: 0.5em;
+  /* margin-right: 0.5em; */
   color: #aaaaaa;
 }
 .see-more:hover {

@@ -1,7 +1,7 @@
 .blog-page {
   display: flex;
   margin-left: 20px;
-
+  margin-right: 20px;
   span {
     color: #aaaaaa;
   }
@@ -19,6 +19,7 @@
     margin-bottom: 0px;
   }
   span {
+    margin-top: 0.5em;
     margin-bottom: 18.496px;
     color: #aaaaaa;
   }
