@@ -44,10 +44,35 @@
     height: auto;
     align-self: center;
     margin-top: 20px;
+    margin-bottom: 20px;
   }
 
   h2 {
     margin-bottom: 0px;
+  }
+
+  ul {
+    padding-left: 20px;
+  }
+}
+
+.project-page-content > img#vhdl_to_java_big {
+  max-width: 300px;
+}
+
+.project-page-content > img#shape-editing-web-app {
+  max-width: 400px;
+}
+
+.feature {
+  margin: 5px;
+}
+
+.technologies {
+  display: flex;
+  
+  span {
+    margin-right: 10px;
   }
 }
 
