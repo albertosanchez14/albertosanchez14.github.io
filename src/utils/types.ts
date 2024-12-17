@@ -14,6 +14,7 @@ export type ProjectType = {
   title: string;
   resume: string;
   description: string;
+  github_link: string;
   img: ImageType;
   features: ProjectFeatureType[];
   technologies: ImageType[];

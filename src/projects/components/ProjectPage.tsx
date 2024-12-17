@@ -8,6 +8,7 @@ export default function ProjectPage({
   img,
   title,
   description,
+  github_link,
   features,
   technologies,
 }: ProjectType) {
@@ -47,7 +48,7 @@ export default function ProjectPage({
       </div>
       <div className="project-page-right-navbar">
         <a
-          href="https://github.com/albertosanchez14/oktopusAPI"
+          href={github_link}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub"
