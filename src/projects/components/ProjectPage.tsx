@@ -5,7 +5,7 @@ import "../styles/project-page.css";
 import { ProjectType } from "../../utils/types";
 
 export default function ProjectPage({
-  name,
+  // name,
   img,
   title,
   technologies,
