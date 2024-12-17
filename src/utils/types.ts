@@ -1,3 +1,4 @@
+// Types for the Projects
 type ImageType = {
   id: string;
   src: string;
@@ -18,4 +19,14 @@ export type ProjectType = {
   img: ImageType;
   features: ProjectFeatureType[];
   technologies: ImageType[];
+};
+
+// Types for the Blogs
+export type BlogType = {
+  id: string;
+  name: string;
+  title: string;
+  date: string;
+  resume: string;
+  content: string[];
 };
