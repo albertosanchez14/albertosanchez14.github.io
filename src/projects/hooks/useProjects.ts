@@ -7,6 +7,7 @@ const fetchProjects = async (limit: number): Promise<ProjectType[]> => {
     {
       name: "oktopus-api",
       title: "Oktopus API",
+      resume: "API to handle the storage of multiple Google Drive accounts",
       img: {
         id: "oktopus-api",
         src: "/oktopus_logo.svg",
@@ -42,7 +43,8 @@ const fetchProjects = async (limit: number): Promise<ProjectType[]> => {
     },
     {
       name: "vhdl-to-java",
-      title: "VHDL Simple Compiler",
+      title: "VHDL To Java Compiler",
+      resume: "Compiler that translates VHDL code to Java code",
       img: {
         id: "vhdl_to_java_big",
         src: "/vhdl_to_java.png",
@@ -59,6 +61,7 @@ const fetchProjects = async (limit: number): Promise<ProjectType[]> => {
     {
       name: "shape-editing-web-app",
       title: "Shape Editing Web App",
+      resume: "Web application to create and edit shapes",
       img: {
         id: "shape-editing-web-app",
         src: "/a3-screencap.png",
@@ -80,6 +83,7 @@ const fetchProjects = async (limit: number): Promise<ProjectType[]> => {
     {
       name: "coming-soon",
       title: "Coming Soon...",
+      resume: "Stay tuned for more projects!",
       img: {
         id: "coming-soon",
         src: "/coming-soon.png",

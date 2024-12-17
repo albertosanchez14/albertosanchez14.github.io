@@ -47,8 +47,8 @@
   background-color: rgb(46, 47, 51, 0.9);
 }
 
-.project-content h2,
-.project-content div {
+.project-content > h2,
+.project-content > div {
   position: absolute; /* Position relative to the .project container */
   color: white; /* Ensure text is readable */
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8); /* Add contrast for readability */
@@ -57,10 +57,28 @@
   left: 0rem;
 }
 
-.project-content h2 {
+.project-content > h2 {
   top: 0.5rem; /* Place at the top */
   border-radius: 0.5rem;
   /* padding: 0.5rem 1rem; */
+}
+
+.project-content > p {
+  position: absolute;
+  top: 2.2em;
+  left: 1em;
+}
+
+.project-content > img {
+  position: absolute;
+  /* Set image to the middle */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+}
+
+.project-content > img#oktopus-api {
+  transform: translate(-50%, -45%);
 }
 
 .project-content div {

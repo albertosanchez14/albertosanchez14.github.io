@@ -7,6 +7,7 @@ type ImageType = {
 export type ProjectType = {
   name: string;
   title: string;
+  resume: string;
   img: ImageType;
   technologies: ImageType[];
 };

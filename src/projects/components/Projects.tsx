@@ -50,6 +50,7 @@ export default function Projects() {
                 >
                   <div className="project-content">
                     <h2>{project.title}</h2>
+                    <p>{project.resume}</p>
                     <img
                       src={project.img.src}
                       alt={`${project.img.alt}`}
