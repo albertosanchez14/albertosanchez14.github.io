@@ -85,3 +85,10 @@
     color: #aaaaaa;
   }
 }
+
+@media (max-width: 768px) {
+  .project-page-left-navbar,
+  .project-page-right-navbar {
+    display: none;
+  }
+}
