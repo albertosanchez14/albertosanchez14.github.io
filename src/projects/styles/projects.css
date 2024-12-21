@@ -24,6 +24,7 @@
   border-radius: 1rem;
   border: 1px solid hsl(240, 6%, 20%);
   background-color: rgb(46, 47, 51, 0.9);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   overflow: hidden;
 
   display: flex;
