@@ -31,9 +31,9 @@ function App() {
           <Link to="/blog" className={checkLocation("/blog")}>
             Blog
           </Link>
-          <Link to="/about" className={checkLocation("/about")}>
+          {/* <Link to="/about" className={checkLocation("/about")}>
             About
-          </Link>
+          </Link> */}
         </div>
       </div>
 
