@@ -9,6 +9,7 @@ import Home from "./home";
 import Projects from "./projects";
 import Blog from "./blog";
 import About from "./about";
+import { useEffect } from "react";
 
 function App() {
   const location = useLocation();
@@ -16,6 +17,14 @@ function App() {
   const checkLocation = (path: string) => {
     return location.pathname === path ? "selected" : "unselected";
   };
+
+  useEffect(() => {
+    // Set the title of the page based on the current path
+    const path = location.pathname;
+    const title = path === "/" ? "Home" : path.split("/")[1].charAt(0).toUpperCase() + path.split("/")[1].slice(1);
+    document.title = `${title} | asanch`;
+  }
+  , [location.pathname]);
 
   return (
     <>

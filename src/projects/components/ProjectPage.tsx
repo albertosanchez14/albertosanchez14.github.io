@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import "../styles/project-page.css";
@@ -12,6 +13,10 @@ export default function ProjectPage({
   features,
   technologies,
 }: ProjectType) {
+  useEffect(() => {
+    document.title = `${title} | asanch`;
+  }, [title]);
+
   return (
     <section className="project-page">
       <div className="project-page-left-navbar">
@@ -24,7 +29,7 @@ export default function ProjectPage({
       </div>
       <div className="project-page-content">
         <h1 className="project-title">{title}</h1>
-        <img src={img.src} alt={img.alt} id={img.id}/>
+        <img src={img.src} alt={img.alt} id={img.id} />
         <h2 id="project-page-description">Description</h2>
         <p>{description}</p>
         <h2 id="project-page-features">Features</h2>

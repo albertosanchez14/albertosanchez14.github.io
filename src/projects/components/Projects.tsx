@@ -13,10 +13,12 @@ export default function Projects() {
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error loading projects</div>;
 
+  // Check if the user is on a project page
   const isProjectPage = projects.some(
     (project) => location.pathname === `/projects/${project.name.toLowerCase()}`
   );
 
+  // Prevents the user from clicking on the "coming-soon" project
   const handleClick = (event: React.MouseEvent, project: ProjectType) => {
     if (project.name === "coming-soon") {
       event.preventDefault();
