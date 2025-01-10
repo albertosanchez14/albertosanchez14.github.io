@@ -15,9 +15,10 @@ function App() {
   const location = useLocation();
 
   const checkLocation = (path: string) => {
-    return location.pathname.split("/")[1] === path.split("/")[1]
-      ? "selected"
-      : "unselected";
+    const currentPath = location.pathname;
+    const currentPathArray = currentPath.split("/");
+    const pathArray = path.split("/");
+    return currentPathArray[1] === pathArray[1] ? "selected" : "unselected";
   };
 
   useEffect(() => {
