@@ -4,7 +4,7 @@ import "./assets/App.css";
 import "./assets/navbar.css";
 import "./assets/footer.css";
 
-import ScrollToTop from "./utils"
+import ScrollToTop from "./utils";
 import Home from "./home";
 import Projects from "./projects";
 import Blog from "./blog";
@@ -15,16 +15,21 @@ function App() {
   const location = useLocation();
 
   const checkLocation = (path: string) => {
-    return location.pathname === path ? "selected" : "unselected";
+    return location.pathname.split("/")[1] === path.split("/")[1]
+      ? "selected"
+      : "unselected";
   };
 
   useEffect(() => {
     // Set the title of the page based on the current path
     const path = location.pathname;
-    const title = path === "/" ? "Home" : path.split("/")[1].charAt(0).toUpperCase() + path.split("/")[1].slice(1);
+    const title =
+      path === "/"
+        ? "Home"
+        : path.split("/")[1].charAt(0).toUpperCase() +
+          path.split("/")[1].slice(1);
     document.title = `${title} | asanch`;
-  }
-  , [location.pathname]);
+  }, [location.pathname]);
 
   return (
     <>
@@ -92,9 +97,9 @@ function App() {
               <li>
                 <Link to="/blog">Blog</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="/about">About</Link>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
