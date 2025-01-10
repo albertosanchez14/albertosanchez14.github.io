@@ -1,6 +1,7 @@
 .blog-page {
   display: flex;
   padding: 0em 1.5em 1em 1.5em;
+  flex-grow: 1;
   span {
     color: #aaaaaa;
   }
@@ -12,7 +13,7 @@
   align-items: flex-start;
   /* margin-left: 20px;
   margin-bottom: 1em; */
-
+  flex-grow: 1;
   padding: 0em 1.5em 1em 1.5em;
   
   h1 {
