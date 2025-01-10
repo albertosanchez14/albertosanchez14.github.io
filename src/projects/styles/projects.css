@@ -1,6 +1,7 @@
 .projects {
   display: flex;
   flex-direction: column;
+  padding: 0em 1.5em 1em 1.5em;
 }
 
 .projects > h1 {
