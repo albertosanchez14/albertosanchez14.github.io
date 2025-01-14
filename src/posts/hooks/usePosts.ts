@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import { BlogType } from "../../utils/types";
+import { PostType } from "../../utils/types";
 
-const fetchBlogs = async (limit: number): Promise<BlogType[]> => {
+const fetchBlogs = async (limit: number): Promise<PostType[]> => {
   // Mock data
   const response = [
     {
@@ -21,7 +21,7 @@ const fetchBlogs = async (limit: number): Promise<BlogType[]> => {
 };
 
 export const useBlogs = (limit: number) => {
-  return useQuery<BlogType[], Error>({
+  return useQuery<PostType[], Error>({
     queryKey: ["blogs", limit],
     queryFn: () => fetchBlogs(limit),
   });

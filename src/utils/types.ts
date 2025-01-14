@@ -22,7 +22,7 @@ export type ProjectType = {
 };
 
 // Types for the Blogs
-export type BlogType = {
+export type PostType = {
   id: string;
   name: string;
   title: string;
