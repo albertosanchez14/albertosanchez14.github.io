@@ -1,15 +1,15 @@
+import { useEffect } from "react";
 import { Routes, Route, Link, useLocation } from "react-router-dom";
 
-import "./assets/App.css";
-import "./assets/navbar.css";
-import "./assets/footer.css";
+import "./styles/App.css";
+import "./styles/navbar.css";
+import "./styles/footer.css";
 
 import ScrollToTop from "./utils";
 import Home from "./home";
 import Projects from "./projects";
-import Blog from "./blog";
+import Posts from "./posts";
 import About from "./about";
-import { useEffect } from "react";
 
 function App() {
   const location = useLocation();
@@ -43,19 +43,19 @@ function App() {
           <Link to="/projects" className={checkLocation("/projects")}>
             Projects
           </Link>
-          <Link to="/blog" className={checkLocation("/blog")}>
-            Blog
+          <Link to="/posts" className={checkLocation("/blog")}>
+            Posts
           </Link>
-          {/* <Link to="/about" className={checkLocation("/about")}>
+          <Link to="/about" className={checkLocation("/about")}>
             About
-          </Link> */}
+          </Link>
         </div>
       </div>
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects/*" element={<Projects />} />
-        <Route path="/blog/*" element={<Blog />} />
+        <Route path="/posts/*" element={<Posts />} />
         <Route path="/about" element={<About />} />
       </Routes>
 
@@ -96,11 +96,11 @@ function App() {
                 <Link to="/projects">Projects</Link>
               </li>
               <li>
-                <Link to="/blog">Blog</Link>
+                <Link to="/posts">Posts</Link>
               </li>
-              {/* <li>
+              <li>
                 <Link to="/about">About</Link>
-              </li> */}
+              </li>
             </ul>
           </div>
         </div>

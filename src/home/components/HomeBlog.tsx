@@ -1,29 +1,29 @@
 import { Link } from "react-router-dom";
 
-import { useBlogs } from "../../blog/hooks/useBlogs";
-import { BlogType } from "../../utils/types";
+import { useBlogs } from "../../posts/hooks/usePosts";
+import { PostType } from "../../utils/types";
 
-import "../assets/home-blog.css";
+import "../styles/home-posts.css";
 
 export default function HomeBlog() {
   const { data, error, isLoading } = useBlogs(1);
-  const blogs = data as BlogType[];
+  const posts = data as PostType[];
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error loading blogs</div>;
 
   return (
-    <section className="home-blog">
+    <section className="home-posts">
       <h1>Blog</h1>
       <p>Here are some of my latest blog posts:</p>
       <ul className="blog-posts">
-        {blogs.map((blog: BlogType) => (
-          <li key={blog.id} className="blog-post">
-            <span>{blog.date}</span>
-            <h2 className="home-blog-title">
-              <Link to={`/blog/${blog.name}`}>{blog.title}</Link>
+        {posts.map((post: PostType) => (
+          <li key={post.id} className="blog-post">
+            <span>{post.date}</span>
+            <h2 className="home-post-title">
+              <Link to={`/blog/${post.name}`}>{post.title}</Link>
             </h2>
-            <p className="home-blog-description">{blog.resume}</p>
+            <p className="home-post-description">{post.resume}</p>
           </li>
         ))}
       </ul>

@@ -1,9 +1,11 @@
-.home-blog {
+.home-posts {
   display: flex;
   flex-direction: column;
+
+  margin-top: 1em;
 }
 
-.home-blog > h1 {
+.home-posts > h1 {
   margin-bottom: 0px;
   display: flex;
 }
@@ -25,7 +27,7 @@
   }
 }
 
-.home-blog-title {
+.home-post-title {
   margin-top: 0.2em;
   margin-bottom: 0px;
 
@@ -34,6 +36,6 @@
   }
 }
 
-.home-blog-description {
+.home-post-description {
   margin-top: 0.2em;
 }

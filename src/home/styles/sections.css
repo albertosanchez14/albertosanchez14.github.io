@@ -2,6 +2,16 @@
   padding: 0em 2em 1em 2em;
 }
 
+@media (max-width: 800px) {
+  .home-contents {
+    padding: 0em 1em 1em 1em;
+  }
+}
+
+.home-contents h1 {
+  font-size: 3em;
+}
+
 .see-more {
   align-self: flex-end;
   /* margin-right: 0.5em; */

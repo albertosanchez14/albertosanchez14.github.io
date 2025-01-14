@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useProjects } from "../../projects/hooks/useProjects";
 import { ProjectType } from "../../utils/types";
 
-import "../assets/home-projects.css";
+import "../styles/home-projects.css";
 
 export default function HomeProjects() {
   const { data, error, isLoading } = useProjects(3);

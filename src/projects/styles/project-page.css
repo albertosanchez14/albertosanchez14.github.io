@@ -86,9 +86,16 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   .project-page-left-navbar,
   .project-page-right-navbar {
     display: none;
+  }
+  .project-page {
+    padding: 0em 1.5em 1em 1.5em;
+  }
+  .project-page-content {
+    margin-left: 0px;
+    margin-right: 0px;
   }
 }
