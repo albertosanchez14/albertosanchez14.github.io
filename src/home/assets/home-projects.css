@@ -1,6 +1,8 @@
 .home-projects {
   display: flex;
   flex-direction: column;
+
+  margin-top: 1em;
 }
 
 .home-projects > h1 {
@@ -97,13 +99,13 @@
   margin-left: 0.5rem;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .mini-project {
     width: calc(50% - 3.2em); /* 2 projects per row on smaller screens */
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .mini-project {
     width: calc(100% - 3em); /* 1 project per row on very small screens */
   }

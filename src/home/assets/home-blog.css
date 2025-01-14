@@ -1,6 +1,8 @@
 .home-blog {
   display: flex;
   flex-direction: column;
+
+  margin-top: 1em;
 }
 
 .home-blog > h1 {
