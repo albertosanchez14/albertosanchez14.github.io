@@ -66,6 +66,16 @@
 .mini-project:hover {
   background-color: #333;
   border: 1px solid #646cff;
+
+  /* Add transition effect */
+  transition: background-color 0.3s, border 0.3s;
+
+  /* Add box shadow on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+
+  h2 {
+    color: #646cff;
+  }
 }
 
 .mini-project-content h2,
