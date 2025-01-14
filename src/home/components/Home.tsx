@@ -1,4 +1,4 @@
-import "../assets/sections.css";
+import "../styles/sections.css";
 
 import Hero from "./Hero";
 import HomeProjects from "./HomeProjects";

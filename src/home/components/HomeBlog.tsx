@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useBlogs } from "../../blog/hooks/useBlogs";
 import { BlogType } from "../../utils/types";
 
-import "../assets/home-blog.css";
+import "../styles/home-blog.css";
 
 export default function HomeBlog() {
   const { data, error, isLoading } = useBlogs(1);

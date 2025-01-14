@@ -1,5 +1,5 @@
-import "../assets/image-text-section.css";
-import "../assets/hero.css";
+import "../styles/image-text-section.css";
+import "../styles/hero.css";
 
 export default function Hero() {
   return (
