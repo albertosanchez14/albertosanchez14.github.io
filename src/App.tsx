@@ -1,8 +1,8 @@
 import { Routes, Route, Link, useLocation } from "react-router-dom";
 
-import "./assets/App.css";
-import "./assets/navbar.css";
-import "./assets/footer.css";
+import "./styles/App.css";
+import "./styles/navbar.css";
+import "./styles/footer.css";
 
 import ScrollToTop from "./utils";
 import Home from "./home";
