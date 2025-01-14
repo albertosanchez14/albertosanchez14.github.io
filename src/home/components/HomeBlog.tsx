@@ -14,7 +14,7 @@ export default function HomeBlog() {
 
   return (
     <section className="home-posts">
-      <h1>Blog</h1>
+      <h1>Posts</h1>
       <p>Here are some of my latest blog posts:</p>
       <ul className="blog-posts">
         {posts.map((post: PostType) => (

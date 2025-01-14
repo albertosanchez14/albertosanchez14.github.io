@@ -4,7 +4,10 @@ export default function About() {
   return (
     <section className="about-page" id="about-page">
       <section className="image-text-section">
-        <img src="./IMG_6590.JPG" alt="Example Image" />
+        <img
+          src="https://media.licdn.com/dms/image/v2/D4E03AQEpOQEeHx4f3g/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1711928873818?e=1742428800&v=beta&t=_DHpLy5mairSPlLgROwCu4N-ptdB5ZNBp1Q_LXF6bXY"
+          alt="Profile Pic"
+        />
         <div className="text-content">
           <h2>Alberto Sánchez del Álamo</h2>
           <div>

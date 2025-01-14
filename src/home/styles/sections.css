@@ -14,8 +14,11 @@
 
 .see-more {
   align-self: flex-end;
-  /* margin-right: 0.5em; */
   color: #aaaaaa;
+
+  animation: slide-right 1s ease-out forwards;
+  animation-delay: 1.4s;
+  opacity: 0;
 }
 .see-more:hover {
   color: white;

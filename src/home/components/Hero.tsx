@@ -1,35 +1,41 @@
-import "../styles/image-text-section.css";
 import "../styles/hero.css";
 
 export default function Hero() {
   return (
-    <>
-      <section className="hero" id="home">
-        <h2>Hi, Welcome to my website!</h2>
-        <section className="image-text-section">
-          <img src="./IMG_6590.JPG" alt="Profile Pic" id="home-img" />
-          <div className="text-content">
-            <h2>Alberto Sánchez del Álamo</h2>
-            <div>
-              <span>Software Developer</span>
-              <span>Madrid, Spain</span>
-            </div>
+    <section className="hero" id="home">
+      <h2>Hi, Welcome to my website!</h2>
+      <section className="image-text-section">
+        <img
+          src="https://avatars.githubusercontent.com/u/94110492?v=4"
+          alt="Profile Pic"
+          id="home-img"
+        />
+        <div className="hero-text-content">
+          <h2>Alberto Sánchez del Álamo</h2>
+          <div>
+            <span>Software Developer</span>
+            <span>Madrid, Spain</span>
           </div>
-        </section>
-        <p>
-          I'm a Computer Engineering student at University Carlos III of Madrid.{" "}
-          <br />
-          Previously at University of Waterloo. <br />
-          Currently Developer @ STAR UC3M.
-        </p>
-        <p>
-          Welcome to my website! I'm a Software Developer with a passion for
-          building innovative software solutions that solve real-world problems.
-          <br />
-          Feel free to explore my projects, read my blog, or learn more about
-          me.
-        </p>
+        </div>
       </section>
-    </>
+      <section className="description-section">
+        <p>Hi! I'm Alberto.</p>
+        <p>
+          I'm a Computer Engineering student at the University Carlos III of
+          Madrid.
+          <br />
+          Previously, I studied at the University of Waterloo.
+        </p>
+        <p>
+          Currently intern at GMV as a Software Engineering and contributing to
+          the Stardust Program @ STAR UC3M.
+        </p>
+        <p>
+          Explore this website to discover what I'm currently working on,
+          reading or thinking about.
+        </p>
+        <p>If what you find interests you, don't hesitate to reach out.</p>
+      </section>
+    </section>
   );
 }
