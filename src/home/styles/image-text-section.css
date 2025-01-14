@@ -1,26 +1,11 @@
 /* Image with Text Section */
-.image-text-section {
-  display: flex;
-  align-items: flex-start;
-}
-
-.image-text-section img {
+.image-text-section img#home-img {
   width: 120px;
   height: 120px;
   border-radius: 50%;
   margin-right: 20px;
   object-fit: cover;
-}
 
-.image-text-section h2 {
-  /* font-size: 2rem; */
-  margin-bottom: 0px;
-  transform: translateY(-10px)
-}
-
-.image-text-section p {
-  font-size: 1.2rem;
-  margin-top: 0px;
-  color: #aaaaaa;
-  transform: translateY(-10px)
+  /* Add a box shadow to the image */
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
 }

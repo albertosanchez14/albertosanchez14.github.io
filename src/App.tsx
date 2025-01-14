@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Routes, Route, Link, useLocation } from "react-router-dom";
 
 import "./styles/App.css";
@@ -9,7 +10,6 @@ import Home from "./home";
 import Projects from "./projects";
 import Blog from "./blog";
 import About from "./about";
-import { useEffect } from "react";
 
 function App() {
   const location = useLocation();
@@ -46,9 +46,9 @@ function App() {
           <Link to="/blog" className={checkLocation("/blog")}>
             Blog
           </Link>
-          {/* <Link to="/about" className={checkLocation("/about")}>
+          <Link to="/about" className={checkLocation("/about")}>
             About
-          </Link> */}
+          </Link>
         </div>
       </div>
 
@@ -98,9 +98,9 @@ function App() {
               <li>
                 <Link to="/blog">Blog</Link>
               </li>
-              {/* <li>
+              <li>
                 <Link to="/about">About</Link>
-              </li> */}
+              </li>
             </ul>
           </div>
         </div>

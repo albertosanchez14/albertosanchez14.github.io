@@ -1,0 +1,107 @@
+.about-page {
+  display: flex;
+  flex-direction: column;
+  padding: 0em 10em 1em 10em;
+  gap: 2em;
+  flex-grow: 1;
+}
+
+@media (max-width: 1200px) {
+  .about-page {
+    padding: 0em 5em 1em 5em;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-page {
+    padding: 0em 2em 1em 2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-page {
+    padding: 0em 1em 1em 1em;
+  }
+}
+
+
+/* Image with Text Section */
+.image-text-section {
+  display: flex;
+  align-items: flex-start;
+}
+
+.image-text-section img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-right: 20px;
+  object-fit: cover;
+}
+
+.image-text-section h2 {
+  margin-bottom: 0px;
+  transform: translateY(-10px)
+}
+
+.image-text-section div {
+  display: flex;
+  flex-direction: column;
+}
+
+.image-text-section span {
+  margin-top: 0px;
+  color: #aaaaaa;
+  transform: translateY(-10px)
+}
+
+/* Contact Info */
+.image-text-section div.contact-info-about {
+  display: flex;
+  flex-direction: row;
+  transform: translate(0px, 10px);
+  gap: 1em;
+}
+
+.image-text-section div.contact-info-about a {
+  color: #aaaaaa;
+  text-decoration: none;
+  font-size: 1.3em;
+  transition: color 300ms;
+}
+
+.image-text-section div.contact-info-about a:hover {
+  color: #646cff;
+}
+
+
+/* Education Section */
+.content-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.content-section h2 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.content-section h3 {
+  margin-top: 0px;
+  margin-bottom: 0.2em;
+  color: #aaaaaa;
+}
+
+.content-section p {
+  color: #aaaaaa;
+  margin-top: 0.2em;
+  margin-bottom: 0px;
+}
+
+.content-section div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+
