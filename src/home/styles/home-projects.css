@@ -1,8 +1,6 @@
 .home-projects {
   display: flex;
   flex-direction: column;
-
-  margin-top: 1em;
 }
 
 .home-projects > h1 {
@@ -44,7 +42,7 @@
   position: relative; /* Enable absolute positioning of children */
   
   /* width: 250px; */
-  width: calc(33.333% - 3.2em); /* Ensures 3 projects per row, adjusts for spacing */
+  width: calc(50% - 3.2em); /* Ensures 2 projects per row, adjusts for spacing */
   height: 250px;
   padding: 1em;
   margin: 0.5em;
@@ -76,7 +74,7 @@
   }
 }
 
-mini-project:nth-child(1) {
+.mini-project:nth-child(1) {
   animation-delay: 1s;
 }
 
@@ -109,7 +107,7 @@ mini-project:nth-child(1) {
   color: white; /* Ensure text is readable */
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8); /* Add contrast for readability */
   margin: 0;
-  padding: 0.5rem 1rem 0.5rem 1rem; /* Add padding to text */
+  padding: 0.5rem 1rem 0rem 1rem; /* Add padding to text */
   left: 0rem;
 }
 
@@ -126,12 +124,45 @@ mini-project:nth-child(1) {
   /* padding: 0.5rem 1rem; */
   display: flex;
   flex-direction: row;
+  align-items: center;
+}
+
+.mini-project-technologies {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   justify-content: flex-end;
 }
 
 .mini-project-technologies img, .mini-project-technologies svg {
   max-width: 20px;
   margin-left: 0.5rem;
+}
+
+.github-link-home {
+  position: relative;
+  display: inline-block;
+  font-size: 20px;
+  margin: 0px;
+}
+
+.github-link-home:hover::after {
+  content: "View on GitHub";
+  position: absolute;
+  bottom: 100%; /* Position the tooltip above the link */
+  transform: translateX(-25%);
+  background-color: #333333c2;
+  color: #fff;
+  padding: 1px 5px;
+  border-radius: 5px;
+  white-space: nowrap;
+  font-size: 0.7em;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.github-link-home:hover::after {
+  opacity: 1;
 }
 
 @media (max-width: 1100px) {

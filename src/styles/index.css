@@ -157,3 +157,12 @@ button:focus-visible {
     opacity: 1;
   }
 }
+
+@keyframes curtain-slide {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

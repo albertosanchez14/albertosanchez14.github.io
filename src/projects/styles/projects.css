@@ -19,6 +19,7 @@
 }
 
 .project {
+  overflow: visible;
   flex: 1 1 calc(50% - 1rem); /* Take 50% width minus the gap */
   max-width: calc(50% - 1rem); /* Ensure max width aligns with flex */
   height: 360px; /* Fixed height for each project */
@@ -32,6 +33,7 @@
   justify-content: center;
   align-items: center;
   position: relative; /* Enable absolute positioning of children */
+  z-index: 1; /* Ensure the content is above the image */
 }
 
 .project img {
@@ -67,6 +69,7 @@
   margin: 0;
   padding: 0.5rem 1rem 0.5rem 1rem; /* Add padding to text */
   left: 0rem;
+  z-index: 1;
 }
 
 .project-content > h2 {
@@ -99,12 +102,52 @@
   width: calc(100% - 2rem); /* Full width minus padding */
   /* padding: 0.5rem 1rem; */
   display: flex;
-  justify-content: flex-end;
+  flex-direction: row;
+  align-items: center;
+}
+
+.project-technologies {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
 }
 
 .project-technologies img, .project-technologies svg {
   max-width: 20px;
   margin-left: 0.5rem;
+  justify-items: end;
+}
+
+.project-links > a {
+  position: relative; /* Ensure the tooltip is positioned relative to this container */
+  overflow: visible;
+}
+
+.github-link {
+  position: relative;
+  display: inline-block;
+  font-size: 20px;
+  margin: 0px;
+}
+
+.github-link:hover::after {
+  content: "View on GitHub";
+  position: absolute;
+  bottom: 100%; /* Position the tooltip above the link */
+  transform: translateX(-25%);
+  background-color: #333333c2;
+  color: #fff;
+  padding: 1px 5px;
+  border-radius: 5px;
+  white-space: nowrap;
+  font-size: 0.7em;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.github-link:hover::after {
+  opacity: 1;
 }
 
 #express{

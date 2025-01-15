@@ -3,8 +3,20 @@ import "../styles/hero.css";
 export default function Hero() {
   return (
     <section className="hero" id="home">
-      <h2>Hi, Welcome to my website!</h2>
+      <div className="intro-container">
+        <h2>Alberto Sánchez del Álamo</h2>
+        <span>Software Developer</span>
+        <span>Madrid, Spain</span>
+      </div>
       <section className="image-text-section">
+        <img
+          src="./IMG_6590.JPG"
+          alt="Profile Pic"
+          id="home-img"
+        />
+      </section>
+
+      {/* <section className="image-text-section">
         <img
           src="https://avatars.githubusercontent.com/u/94110492?v=4"
           alt="Profile Pic"
@@ -17,7 +29,8 @@ export default function Hero() {
             <span>Madrid, Spain</span>
           </div>
         </div>
-      </section>
+      </section> */}
+
       <section className="description-section">
         <p>Hi! I'm Alberto.</p>
         <p>

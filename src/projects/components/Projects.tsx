@@ -24,6 +24,10 @@ export default function Projects() {
       event.preventDefault();
     }
   };
+  // Prevents the click event from propagating to the parent elements
+  const handleGithubClick = (event: React.MouseEvent) => {
+    event.stopPropagation();
+  };
 
   return (
     <>
@@ -58,10 +62,24 @@ export default function Projects() {
                       alt={`${project.img.alt}`}
                       id={project.img.id}
                     />
-                    <div className="project-technologies">
-                      {project.technologies.map((tech) => (
-                        <img key={tech.id} src={tech.src} alt={tech.alt} />
-                      ))}
+                    <div>
+                      <div className="project-links">
+                        <a
+                          href={project.github_link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="GitHub"
+                          className="github-link"
+                          onClick={handleGithubClick}
+                        >
+                          <i className="fab fa-github"></i>
+                        </a>
+                      </div>
+                      <div className="project-technologies">
+                        {project.technologies.map((tech) => (
+                          <img key={tech.id} src={tech.src} alt={tech.alt} />
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </Link>

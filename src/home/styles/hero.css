@@ -1,29 +1,45 @@
 .hero {
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
+  align-items: flex-start;
+  gap: 2em;
   width: 100%;
   max-width: 1200px;
   position: relative;
 }
 
-.hero > h2 {
-  margin-top: 0px;
-  animation: slide-right 1s ease-out forwards;
+.hero > .intro-container {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
+.hero > .intro-container > h2,
+.hero > .intro-container > span {
+  display: inline-block;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  animation: curtain-slide 1s ease-out forwards;
+}
+.hero > .intro-container > span {
+  color: #aaaaaa;
+}
 
 /* Image with Text Section */
-.image-text-section img#home-img {
-  width: 120px;
-  height: 120px;
+.image-text-section img {
   border-radius: 50%;
   margin-right: 20px;
   object-fit: cover;
-  z-index: 1; /* Ensure it is on top */
-
   /* Add a box shadow to the image */
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+}
+
+img#home-img {
+  width: 180px;
+  height: 180px;
+  border-radius: 5%;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.75);
+  z-index: 1; /* Ensure it is on top */
 
   animation: slide-right 1s ease-out forwards;
   animation-delay: 0.5s;
@@ -36,13 +52,11 @@
   opacity: 0;
 }
 
-
 /* Web Description Section */
 .description-section {
   display: flex;
   flex-direction: column;
   gap: 1em;
-  margin-top: 1.5em;
 
   p {
     margin: 0;

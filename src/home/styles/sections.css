@@ -1,5 +1,8 @@
 .home-contents {
+  display: flex;
+  flex-direction: column;
   padding: 0em 2em 1em 2em;
+  gap: 3em;
 }
 
 @media (max-width: 800px) {
