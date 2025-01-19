@@ -21,13 +21,13 @@ export default function HomeBlog() {
           <li key={post.id} className="blog-post">
             <span>{post.date}</span>
             <h2 className="home-post-title">
-              <Link to={`/blog/${post.name}`}>{post.title}</Link>
+              <Link to={`/posts/${post.name}`}>{post.title}</Link>
             </h2>
             <p className="home-post-description">{post.resume}</p>
           </li>
         ))}
       </ul>
-      <Link className="see-more" to="/blog">
+      <Link className="see-more" to="/posts">
         See more →
       </Link>
     </section>

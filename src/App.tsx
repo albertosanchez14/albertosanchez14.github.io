@@ -43,7 +43,7 @@ function App() {
           <Link to="/projects" className={checkLocation("/projects")}>
             Projects
           </Link>
-          <Link to="/posts" className={checkLocation("/blog")}>
+          <Link to="/posts" className={checkLocation("/posts")}>
             Posts
           </Link>
           <Link to="/about" className={checkLocation("/about")}>

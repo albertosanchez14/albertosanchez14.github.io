@@ -2,7 +2,7 @@ import "../styles/sections.css";
 
 import Hero from "./Hero";
 import HomeProjects from "./HomeProjects";
-import HomeBlog from "./HomeBlog";
+import HomeBlog from "./HomePosts";
 
 export default function Home() {
   return (
