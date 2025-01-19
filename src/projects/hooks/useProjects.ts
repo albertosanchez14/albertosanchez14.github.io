@@ -8,7 +8,8 @@ const fetchProjects = async (limit: number): Promise<ProjectType[]> => {
       name: "oktopus-api",
       title: "Oktopus API",
       resume: "API to handle the storage of multiple Google Drive accounts",
-      description: "Oktopus API is a Node.js-based backend application designed to manage storage across multiple Google Drive accounts by leveraging the Google API. It leverages Express.js for routing, MongoDB for data storage, and various middleware for handling authentication, logging, and error management.",
+      description:
+        "Oktopus API is a Node.js-based backend application designed to manage storage across multiple Google Drive accounts by leveraging the Google API. It leverages Express.js for routing, MongoDB for data storage, and various middleware for handling authentication, logging, and error management.",
       github_link: "https://github.com/albertosanchez14/oktopusAPI",
       img: {
         id: "oktopus-api",
@@ -81,7 +82,8 @@ const fetchProjects = async (limit: number): Promise<ProjectType[]> => {
       name: "vhdl-to-java",
       title: "VHDL To Java Compiler",
       resume: "Compiler that translates VHDL code to Java code",
-      description: "VHDL-to-Java is a tool, designed in ECE351 in the University of Waterlooto, to translate VHDL (VHSIC Hardware Description Language) descriptions into Java code for hardware simulation. This project bridges the gap between hardware description and object-oriented programming, enabling developers to simulate digital systems directly in Java.",
+      description:
+        "VHDL-to-Java is a tool, designed in ECE351 in the University of Waterlooto, to translate VHDL (VHSIC Hardware Description Language) descriptions into Java code for hardware simulation. This project bridges the gap between hardware description and object-oriented programming, enabling developers to simulate digital systems directly in Java.",
       github_link: "https://github.com/albertosanchez14/VHDL-to-Java",
       img: {
         id: "vhdl_to_java_big",
@@ -96,7 +98,8 @@ const fetchProjects = async (limit: number): Promise<ProjectType[]> => {
         },
         {
           title: "Desugaring and Elaboration",
-          description: "Implements VHDL elaboration processes by simplifying and expanding VHDL constructs into canonical forms, as outlined in the Elaboration section of the manual. This includes inlining components and signal declarations."
+          description:
+            "Implements VHDL elaboration processes by simplifying and expanding VHDL constructs into canonical forms, as outlined in the Elaboration section of the manual. This includes inlining components and signal declarations.",
         },
         {
           title: "Java Code Generation",
@@ -117,7 +120,7 @@ const fetchProjects = async (limit: number): Promise<ProjectType[]> => {
           title: "Technology Mapping",
           description:
             "Supports mapping VHDL constructs to corresponding Java components, effectively bridging the gap between hardware and software domains. This reflects the Graphviz and Circuit Mapping labs where AST representations are translated to usable outputs.",
-        }
+        },
       ],
       technologies: [
         {
@@ -131,7 +134,8 @@ const fetchProjects = async (limit: number): Promise<ProjectType[]> => {
       name: "shape-editing-web-app",
       title: "Shape Editing Web App",
       resume: "Web application to create and edit shapes",
-      description: "Web application created using Preact with TypeScript developed in the University of Waterloo. This web application allows users to manage and edit shapes. It features a left and right side layout, with the left side containing a toolbar, a shape list, and a status bar, while the right side displays details or messages based on the selected shape.",
+      description:
+        "Web application created using Preact with TypeScript developed in the University of Waterloo. This web application allows users to manage and edit shapes. It features a left and right side layout, with the left side containing a toolbar, a shape list, and a status bar, while the right side displays details or messages based on the selected shape.",
       github_link: "https://github.com/albertosanchez14/shape-editing-web-app",
       img: {
         id: "shape-editing-web-app",
@@ -146,8 +150,7 @@ const fetchProjects = async (limit: number): Promise<ProjectType[]> => {
         },
         {
           title: "Shape List",
-          description:
-            "Initially contains 8 square shapes with random hues.",
+          description: "Initially contains 8 square shapes with random hues.",
         },
         {
           title: "Status Bar",
@@ -192,20 +195,6 @@ const fetchProjects = async (limit: number): Promise<ProjectType[]> => {
           alt: "React",
         },
       ],
-    },
-    {
-      name: "coming-soon",
-      title: "Coming Soon...",
-      resume: "Stay tuned for more projects!",
-      description: "",
-      github_link: "",
-      img: {
-        id: "coming-soon",
-        src: "/coming-soon.png",
-        alt: "",
-      },
-      features: [],
-      technologies: [],
     },
   ];
   // Simulate network delay

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import "../styles/project-page.css";
 
@@ -13,9 +13,11 @@ export default function ProjectPage({
   features,
   technologies,
 }: ProjectType) {
+  const location = useLocation();
+
   useEffect(() => {
     document.title = `${title} | asanch`;
-  }, [title]);
+  }, [location.pathname, title]);
 
   return (
     <section className="project-page">
@@ -52,6 +54,7 @@ export default function ProjectPage({
         </div>
       </div>
       <div className="project-page-right-navbar">
+        <span>View on GitHub</span>
         <a
           href={github_link}
           target="_blank"

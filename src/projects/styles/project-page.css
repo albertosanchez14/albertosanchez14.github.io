@@ -31,6 +31,11 @@
     color: white;
     cursor: pointer;
   }
+  span {
+    font-weight: 400;
+    font-size: 0.8em;
+    color: #aaaaaa;
+  }
 }
 
 .project-page-content {
@@ -70,7 +75,7 @@
 
 .technologies {
   display: flex;
-  
+
   span {
     margin-right: 10px;
   }

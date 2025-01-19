@@ -1,5 +1,6 @@
 .posts-page {
   display: flex;
+  flex-direction: column;
   padding: 0em 1.5em 1em 1.5em;
   flex-grow: 1;
   span {
@@ -25,4 +26,8 @@
     margin-bottom: 18.496px;
     color: #aaaaaa;
   }
+}
+
+.mini-post {
+  opacity: 0; /* Ensure elements are initially hidden */
 }

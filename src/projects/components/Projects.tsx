@@ -1,4 +1,6 @@
+import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
+
 import { useProjects } from "../hooks/useProjects";
 import { ProjectType } from "../../utils/types";
 
@@ -7,7 +9,7 @@ import "../styles/projects.css";
 import ProjectPage from "./ProjectPage";
 
 export default function Projects() {
-  const { data, error, isLoading } = useProjects(4);
+  const { data, error, isLoading } = useProjects(3);
   const projects = data as ProjectType[];
 
   if (isLoading) return <div>Loading...</div>;
@@ -45,13 +47,18 @@ export default function Projects() {
         <section className="projects">
           <div>
             <div className="projects-display">
-              {projects.map((project) => (
+              {projects.map((project, index) => (
                 <Link
                   key={project.name}
                   to={project.name.toLowerCase()}
                   className={`project ${
                     project.name === "coming-soon" ? "disabled" : ""
                   }`}
+                  style={{
+                    animation: `slide-down 1s ease-out forwards`,
+                    animationDelay: `${index * 0.25}s`,
+                    zIndex: `${projects.length - index}`,
+                  }}
                   onClick={(event) => handleClick(event, project)}
                 >
                   <div className="project-content">
