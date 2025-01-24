@@ -196,6 +196,48 @@ const fetchProjects = async (limit: number): Promise<ProjectType[]> => {
         },
       ],
     },
+    {
+      name: "imtool",
+      title: "Imtool",
+      resume: "Image processing application in PPM format.",
+      description:
+        "Imtool is an image processing tool designed designed to work with PPM format images. Developed as part of the Computer Architecture course at University Carlos III of Madrid, this project focuses on optimizing image transformations using C++20. The implementation explores two different data organization strategies: Structure of Arrays (SOA) and Array of Structures (AOS), to analyze their impact on performance and energy consumption. By comparing these two implementations, the project provides insights into memory access patterns and computational efficiency in image processing tasks.",
+      github_link: "https://github.com/albertosanchez14/imtool",
+      img: {
+        id: "imtool-img",
+        src: "/imtool.png",
+        alt: "imtool",
+      },
+      features: [
+        {
+          title: "info",
+          description: "Retrieve image metadata.",
+        },
+        {
+          title: "maxlevel",
+          description: "Scale the number of intensity levels.",
+        },
+        {
+          title: "resize",
+          description: "Resize the image using bilinear interpolation.",
+        },
+        {
+          title: "cutfreq",
+          description: "Remove the least frequent colors from the image.",
+        },
+        {
+          title: "compress",
+          description: "Compress the image using a fictitious CPPM format.",
+        },
+      ],
+      technologies: [
+        {
+          id: "c++",
+          src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg",
+          alt: "C++",
+        },
+      ],
+    },
   ];
   // Simulate network delay
   // await new Promise((resolve) => setTimeout(resolve, 1));

@@ -9,7 +9,7 @@ import "../styles/projects.css";
 import ProjectPage from "./ProjectPage";
 
 export default function Projects() {
-  const { data, error, isLoading } = useProjects(3);
+  const { data, error, isLoading } = useProjects(4);
   const projects = data as ProjectType[];
 
   if (isLoading) return <div>Loading...</div>;
