@@ -10,7 +10,7 @@ export default function Hero() {
       </div>
       <section className="image-text-section">
         <img
-          src="./ACF5594-baixa-2-808x800.jpg"
+          src="./IMG_0225.JPG"
           alt="Profile Pic"
           id="home-img"
         />
