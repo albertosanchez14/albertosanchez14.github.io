@@ -3,16 +3,16 @@ import { Link, useLocation } from "react-router-dom";
 
 import "../styles/project-page.css";
 
-import { ProjectType } from "../../utils/types";
+import { type Project } from "../../content/portfolio";
 
 export default function ProjectPage({
-  img,
+  image,
   title,
   description,
-  github_link,
+  githubLink,
   features,
   technologies,
-}: ProjectType) {
+}: Project) {
   const location = useLocation();
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export default function ProjectPage({
       </div>
       <div className="project-page-content">
         <h1 className="project-title">{title}</h1>
-        <img src={img.src} alt={img.alt} id={img.id} />
+        <img src={image.src} alt={image.alt} id={image.id} />
         <h2 id="project-page-description">Description</h2>
         <p>{description}</p>
         <h2 id="project-page-features">Features</h2>
@@ -56,7 +56,7 @@ export default function ProjectPage({
       <div className="project-page-right-navbar">
         <span>View on GitHub</span>
         <a
-          href={github_link}
+          href={githubLink}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub"

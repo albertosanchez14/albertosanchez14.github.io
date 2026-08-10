@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
-import { PostType } from "../../utils/types";
+import { type Post as PostType } from "../../content/portfolio";
 
 interface BlogListProps {
-  posts: PostType[];
+  posts: readonly PostType[];
 }
 
 export default function PostsList({ posts }: BlogListProps) {
@@ -20,7 +20,7 @@ export default function PostsList({ posts }: BlogListProps) {
         >
           <span>{post.date}</span>
           <h2 className="home-post-title">
-            <Link to={"/posts/" + post.name}>{post.title}</Link>
+            <Link to={"/posts/" + post.slug}>{post.title}</Link>
           </h2>
           <p className="home-post-description">{post.resume}</p>
         </article>

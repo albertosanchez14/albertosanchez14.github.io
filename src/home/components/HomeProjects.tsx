@@ -1,15 +1,10 @@
 import { Link } from "react-router-dom";
-import { useProjects } from "../../projects/hooks/useProjects";
-import { ProjectType } from "../../utils/types";
+import { listProjects } from "../../content/portfolio";
 
 import "../styles/home-projects.css";
 
 export default function HomeProjects() {
-  const { data, error, isLoading } = useProjects(2);
-  const projects = data as ProjectType[];
-
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error loading projects</div>;
+  const projects = listProjects(2);
 
   const handleGithubClick = (event: React.MouseEvent) => {
     console.log("GitHub link clicked");
@@ -24,21 +19,21 @@ export default function HomeProjects() {
         <div className="home-projects-display">
           {projects.map((project) => (
             <Link
-              key={project.name}
-              to={`/projects/${project.name}`}
+              key={project.slug}
+              to={`/projects/${project.slug}`}
               className="mini-project"
             >
               <div className="mini-project-content">
                 <h2>{project.title}</h2>
                 <img
-                  src={project.img.src}
-                  alt={project.img.alt}
-                  id={project.img.id}
+                  src={project.image.src}
+                  alt={project.image.alt}
+                  id={project.image.id}
                 />
                 <div>
                   <div className="mini-project-links">
                     <a
-                      href={project.github_link}
+                      href={project.githubLink}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="GitHub"

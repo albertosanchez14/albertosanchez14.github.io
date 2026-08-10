@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import { PostType } from "../../utils/types";
+import { type Post as PostType } from "../../content/portfolio";
 
 export default function Post(post: PostType) {
   useEffect(() => {

@@ -1,28 +1,23 @@
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 
-import { useProjects } from "../hooks/useProjects";
-import { ProjectType } from "../../utils/types";
+import { listProjects, type Project } from "../../content/portfolio";
 
 import "../styles/projects.css";
 
 import ProjectPage from "./ProjectPage";
 
 export default function Projects() {
-  const { data, error, isLoading } = useProjects(4);
-  const projects = data as ProjectType[];
-
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error loading projects</div>;
+  const projects = listProjects();
 
   // Check if the user is on a project page
   const isProjectPage = projects.some(
-    (project) => location.pathname === `/projects/${project.name.toLowerCase()}`
+    (project) => location.pathname === `/projects/${project.slug}`
   );
 
   // Prevents the user from clicking on the "coming-soon" project
-  const handleClick = (event: React.MouseEvent, project: ProjectType) => {
-    if (project.name === "coming-soon") {
+  const handleClick = (event: React.MouseEvent, project: Project) => {
+    if (project.slug === "coming-soon") {
       event.preventDefault();
     }
   };
@@ -34,10 +29,10 @@ export default function Projects() {
   return (
     <>
       <Routes>
-        {projects.map((project: ProjectType, index: number) => (
+        {projects.map((project) => (
           <Route
-            key={index}
-            path={`/${project.name.toLowerCase()}`}
+            key={project.slug}
+            path={`/${project.slug}`}
             element={<ProjectPage {...project} />}
           />
         ))}
@@ -49,10 +44,10 @@ export default function Projects() {
             <div className="projects-display">
               {projects.map((project, index) => (
                 <Link
-                  key={project.name}
-                  to={project.name.toLowerCase()}
+                  key={project.slug}
+                  to={project.slug}
                   className={`project ${
-                    project.name === "coming-soon" ? "disabled" : ""
+                    project.slug === "coming-soon" ? "disabled" : ""
                   }`}
                   style={{
                     animation: `slide-down 1s ease-out forwards`,
@@ -65,14 +60,14 @@ export default function Projects() {
                     <h2>{project.title}</h2>
                     <p>{project.resume}</p>
                     <img
-                      src={project.img.src}
-                      alt={`${project.img.alt}`}
-                      id={project.img.id}
+                      src={project.image.src}
+                      alt={project.image.alt}
+                      id={project.image.id}
                     />
                     <div>
                       <div className="project-links">
                         <a
-                          href={project.github_link}
+                          href={project.githubLink}
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label="GitHub"
