@@ -9,12 +9,13 @@
     "build": "vite build && tsc -b",
     "postbuild": "cp dist/index.html dist/404.html",
     "lint": "eslint .",
+    "pretest": "npm run build",
+    "test": "playwright test",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
-    "@tanstack/react-query": "^5.62.7",
     "@tanstack/react-router": "^1.170.25",
     "@tanstack/router-plugin": "^1.168.29",
     "react": "^18.3.1",
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",
+    "@playwright/test": "^1.62.1",
     "@tailwindcss/vite": "^4.3.3",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",

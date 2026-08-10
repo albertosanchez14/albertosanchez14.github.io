@@ -9,7 +9,15 @@ export const Route = createFileRoute("/projects/$slug")({
     return project;
   },
   component: ProjectDetail,
-  notFoundComponent: () => <section className="not-found"><h1>Project not found</h1><p>That project does not exist.</p><Link to="/projects">View all projects</Link></section>,
+  notFoundComponent: () => (
+    <section className="px-6 py-16 text-center">
+      <h1 className="text-4xl font-semibold">Project not found</h1>
+      <p className="mt-3 text-muted">That project does not exist.</p>
+      <Link className="mt-6 inline-block text-accent transition-colors hover:text-white" to="/projects">
+        View all projects
+      </Link>
+    </section>
+  ),
   head: ({ loaderData }) => ({ meta: [{ title: `${loaderData?.title ?? "Project"} | asanch` }] }),
 });
 
