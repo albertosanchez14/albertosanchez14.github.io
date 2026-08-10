@@ -1,168 +1,60 @@
-:root {
-  font-family: "Chakra Petch", sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import "tailwindcss";
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-  
-  background: rgb(14,19,61);
-  background: linear-gradient(90deg, rgba(14,19,61,1) 0%, rgba(27,89,115,1) 60%, rgba(27,89,115,1) 100%, rgba(2,0,36,1) 100%);
-  
-  background: rgb(14,19,61);
-  background: linear-gradient(90deg, rgba(14,19,61,1) 0%, rgba(23,67,85,1) 60%, rgba(23,67,85,1) 100%, rgba(2,0,36,1) 100%);
-
-  background: radial-gradient(circle at 50% 50%, #0c185b, #111e4d, #141f3f, #151c32, #131824, #0e1117, #060708, #000000);
-  background: radial-gradient(circle at 50% 50%, #290b5b, #26164d, #23193f, #1e1932, #181625, #111017, #070708, #000000);
-  /* background: radial-gradient(circle at 50% 50%, #290b5b, #221147, #1b1136, #140f26, #0e0b19, #07060c, #020203, #000000); */
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@theme {
+  --font-sans: "Chakra Petch", sans-serif;
+  --color-ink: #f8fafc;
+  --color-muted: #a1a1aa;
+  --color-accent: #818cf8;
+  --color-surface: rgb(46 47 51 / 90%);
+  --animate-enter-right: enter-right 700ms ease-out both;
+  --animate-enter-down: enter-down 700ms ease-out both;
+  --animate-curtain: curtain 700ms ease-out both;
 }
 
-a {
-  font-weight: 500;
-  /* color: #646cff; */
-  color: white;
-  text-decoration: inherit;
+@keyframes enter-right {
+  from { opacity: 0; transform: translateX(-20%); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
-body {
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  min-width: 320px;
-  min-height: 100vh;
+@keyframes enter-down {
+  from { opacity: 0; transform: translateY(-35%); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-/* @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
-
-
-.chakra-petch-light {
-  font-family: "Chakra Petch", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-}
-
-.chakra-petch-regular {
-  font-family: "Chakra Petch", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.chakra-petch-medium {
-  font-family: "Chakra Petch", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-}
-
-.chakra-petch-semibold {
-  font-family: "Chakra Petch", sans-serif;
-  font-weight: 600;
-  font-style: normal;
-}
-
-.chakra-petch-bold {
-  font-family: "Chakra Petch", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.chakra-petch-light-italic {
-  font-family: "Chakra Petch", sans-serif;
-  font-weight: 300;
-  font-style: italic;
-}
-
-.chakra-petch-regular-italic {
-  font-family: "Chakra Petch", sans-serif;
-  font-weight: 400;
-  font-style: italic;
-}
-
-.chakra-petch-medium-italic {
-  font-family: "Chakra Petch", sans-serif;
-  font-weight: 500;
-  font-style: italic;
-}
-
-.chakra-petch-semibold-italic {
-  font-family: "Chakra Petch", sans-serif;
-  font-weight: 600;
-  font-style: italic;
-}
-
-.chakra-petch-bold-italic {
-  font-family: "Chakra Petch", sans-serif;
-  font-weight: 700;
-  font-style: italic;
-}
-
-@keyframes slide-down {
-  from {
-    transform: translateY(-50%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+@keyframes curtain {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
 }
 
 @keyframes slide-right {
-  from {
-    transform: translateX(-20%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
+  from { opacity: 0; transform: translateX(-20%); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
-@keyframes curtain-slide {
-  from {
-    transform: translateX(-100%);
+@keyframes slide-down {
+  from { opacity: 0; transform: translateY(-50%); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@layer base {
+  :root {
+    color: var(--color-ink);
+    background: radial-gradient(circle at 50% 50%, #290b5b, #26164d, #23193f, #1e1932, #181625, #111017, #070708, #000);
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-  to {
-    transform: translateX(0);
+
+  body { min-width: 320px; min-height: 100vh; }
+  a { text-decoration: none; }
+  :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
   }
 }
