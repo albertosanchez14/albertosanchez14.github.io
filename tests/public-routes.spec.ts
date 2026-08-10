@@ -48,8 +48,16 @@ for (const route of unknownRoutes) {
   });
 }
 
-test("main navigation changes index routes without a document reload", async ({ page }) => {
+test("in-app links navigate every public route without a document reload", async ({ page }) => {
+  let documentRequests = 0;
+  page.on("request", (request) => {
+    if (request.isNavigationRequest() && request.frame() === page.mainFrame()) {
+      documentRequests += 1;
+    }
+  });
+
   await page.goto("/");
+  expect(documentRequests).toBe(1);
 
   for (const route of indexRoutes.slice(1)) {
     const linkName = route.path === "/about" ? "About" : route.heading;
@@ -59,5 +67,26 @@ test("main navigation changes index routes without a document reload", async ({ 
       .click();
     await expect(page).toHaveURL(new RegExp(`${route.path}/?$`));
     await expect(page.getByRole("heading", { level: 1, name: route.heading })).toBeVisible();
+    expect(documentRequests).toBe(1);
+  }
+
+  for (const project of listProjects()) {
+    await page
+      .getByRole("navigation", { name: "Main navigation" })
+      .getByRole("link", { name: "Projects" })
+      .click();
+    await page.getByRole("link", { name: `View ${project.title}`, exact: true }).click();
+    await expect(page.getByRole("heading", { level: 1, name: project.title })).toBeVisible();
+    expect(documentRequests).toBe(1);
+  }
+
+  for (const post of listPosts()) {
+    await page
+      .getByRole("navigation", { name: "Main navigation" })
+      .getByRole("link", { name: "Posts" })
+      .click();
+    await page.getByRole("link", { name: post.title }).click();
+    await expect(page.getByRole("heading", { level: 1, name: post.title })).toBeVisible();
+    expect(documentRequests).toBe(1);
   }
 });
