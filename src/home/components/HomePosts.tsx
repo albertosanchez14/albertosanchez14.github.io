@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
 import { listPosts } from "../../content/portfolio";
 
 import "../styles/home-posts.css";
@@ -15,7 +15,7 @@ export default function HomeBlog() {
           <li key={post.id} className="blog-post">
             <span>{post.date}</span>
             <h2 className="home-post-title">
-              <Link to={`/posts/${post.slug}`}>{post.title}</Link>
+              <Link to="/posts/$slug" params={{ slug: post.slug }}>{post.title}</Link>
             </h2>
             <p className="home-post-description">{post.resume}</p>
           </li>

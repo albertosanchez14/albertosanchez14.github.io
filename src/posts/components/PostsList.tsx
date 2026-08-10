@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
 
 import { type Post as PostType } from "../../content/portfolio";
 
@@ -20,7 +20,7 @@ export default function PostsList({ posts }: BlogListProps) {
         >
           <span>{post.date}</span>
           <h2 className="home-post-title">
-            <Link to={"/posts/" + post.slug}>{post.title}</Link>
+            <Link to="/posts/$slug" params={{ slug: post.slug }}>{post.title}</Link>
           </h2>
           <p className="home-post-description">{post.resume}</p>
         </article>

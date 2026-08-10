@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
 
 import "../styles/project-page.css";
 
@@ -13,12 +12,6 @@ export default function ProjectPage({
   features,
   technologies,
 }: Project) {
-  const location = useLocation();
-
-  useEffect(() => {
-    document.title = `${title} | asanch`;
-  }, [location.pathname, title]);
-
   return (
     <section className="project-page">
       <div className="project-page-left-navbar">

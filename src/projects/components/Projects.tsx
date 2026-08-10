@@ -1,19 +1,13 @@
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
 
 import { listProjects, type Project } from "../../content/portfolio";
 
 import "../styles/projects.css";
 
-import ProjectPage from "./ProjectPage";
 
 export default function Projects() {
   const projects = listProjects();
-
-  // Check if the user is on a project page
-  const isProjectPage = projects.some(
-    (project) => location.pathname === `/projects/${project.slug}`
-  );
 
   // Prevents the user from clicking on the "coming-soon" project
   const handleClick = (event: React.MouseEvent, project: Project) => {
@@ -28,24 +22,14 @@ export default function Projects() {
 
   return (
     <>
-      <Routes>
-        {projects.map((project) => (
-          <Route
-            key={project.slug}
-            path={`/${project.slug}`}
-            element={<ProjectPage {...project} />}
-          />
-        ))}
-      </Routes>
-
-      {!isProjectPage && (
-        <section className="projects">
+      <section className="projects">
           <div>
             <div className="projects-display">
               {projects.map((project, index) => (
                 <Link
                   key={project.slug}
-                  to={project.slug}
+                  to="/projects/$slug"
+                  params={{ slug: project.slug }}
                   className={`project ${
                     project.slug === "coming-soon" ? "disabled" : ""
                   }`}
@@ -88,8 +72,7 @@ export default function Projects() {
               ))}
             </div>
           </div>
-        </section>
-      )}
+      </section>
     </>
   );
 }

@@ -1,12 +1,6 @@
-import { useEffect } from "react";
-
 import { type Post as PostType } from "../../content/portfolio";
 
 export default function Post(post: PostType) {
-  useEffect(() => {
-    document.title = `${post.title} | asanch`;
-  }, [post.title]);
-
   return (
     <section className="post-page">
       <h1>{post.title}</h1>

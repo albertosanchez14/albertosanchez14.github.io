@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
 import { listProjects } from "../../content/portfolio";
 
 import "../styles/home-projects.css";
@@ -20,7 +20,8 @@ export default function HomeProjects() {
           {projects.map((project) => (
             <Link
               key={project.slug}
-              to={`/projects/${project.slug}`}
+              to="/projects/$slug"
+              params={{ slug: project.slug }}
               className="mini-project"
             >
               <div className="mini-project-content">
