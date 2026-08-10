@@ -89,4 +89,12 @@ test("in-app links navigate every public route without a document reload", async
     await expect(page.getByRole("heading", { level: 1, name: post.title })).toBeVisible();
     expect(documentRequests).toBe(1);
   }
+
+  await page
+    .getByRole("navigation", { name: "Main navigation" })
+    .getByRole("link", { name: "Home" })
+    .click();
+  await expect(page).toHaveURL(/\/$/);
+  await expect(page.getByRole("heading", { level: 1, name: indexRoutes[0].heading })).toBeVisible();
+  expect(documentRequests).toBe(1);
 });
