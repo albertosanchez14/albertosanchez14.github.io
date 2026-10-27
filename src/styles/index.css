@@ -7,6 +7,7 @@
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  --content-width: 1000px;
   --background: #1e1e2e; /* Mocha Base */
   --surface: #181825; /* Mocha Mantle */
   --crust: #11111b;
@@ -76,9 +77,9 @@ button, input { font: inherit; }
 .site-shell { height: 100dvh; }
 .terminal-window { --terminal-gutter: clamp(20px, 5vw, 80px); height: 100%; display: flex; flex-direction: column; background: var(--background); color: var(--ink); }
 .theme-carbon { --background: #101016; --surface: #181822; --surface-0: #252535; --line: #3e3c58; --ink: #e2e0f0; --soft-ink: #c5c2d8; --muted: #aaa6c0; --accent: #b69af7; --accent-hover: #cec0ff; --blue: #8caeff; --green: #8caeff; }
-.terminal-window > .editor-footer, .terminal-window > .vim-workspace { width: min(1180px, calc(100% - 2 * var(--terminal-gutter))); margin-inline: auto; }
+.terminal-window > .editor-footer, .terminal-window > .vim-workspace { width: min(var(--content-width), calc(100% - 2 * var(--terminal-gutter))); margin-inline: auto; }
 .terminal-viewport { flex: 1; min-height: 0; overflow: auto; scrollbar-color: var(--line) transparent; scrollbar-width: thin; padding: clamp(28px, 5vh, 60px) var(--terminal-gutter) 30px; }
-.terminal-intro, .terminal-content, .terminal-prompt-area { max-width: 1180px; margin-left: auto; margin-right: auto; }
+.terminal-intro, .terminal-content, .terminal-prompt-area { max-width: var(--content-width); margin-left: auto; margin-right: auto; }
 .boot-command, .boot-list-command, .intro-listing .terminal-listing { font-size: 13px; }
 .boot-command, .boot-list-command { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; min-height: 24px; }
 .shell-user { color: var(--green); }
@@ -86,9 +87,8 @@ button, input { font: inherit; }
 .block-cursor { display: inline-block; height: 16px; width: 8px; background: var(--accent); animation: blink 1s steps(1) infinite; }
 @keyframes blink { 50% { opacity: 0; } }
 .skip-intro { margin-top: 24px; border: 0; padding: 8px 0; background: none; color: var(--muted); cursor: pointer; font-size: 12px; }
-.profile-output { display: grid; grid-template-columns: minmax(0, 470px) minmax(0, 1fr); align-items: center; gap: clamp(32px, 5vw, 80px); margin: 38px 0 32px; }
-.ascii-avatar { margin: 0; font-family: monospace; font-size: clamp(4px, .55vw, 7px); line-height: 1.05; white-space: pre; color: var(--accent); justify-self: center; user-select: none; }
-.profile-comment { font-size: 12px; color: var(--muted); margin: 0 0 18px; }
+.profile-output { display: grid; grid-template-columns: max-content minmax(0, 1fr); align-items: center; gap: clamp(32px, 5vw, 64px); margin: 38px 0 32px; }
+.ascii-avatar { margin: 0; font-family: monospace; font-size: clamp(4px, .55vw, 6px); line-height: 1.05; white-space: pre; color: var(--ink); justify-self: center; user-select: none; }
 .profile-info h1 { font-size: clamp(24px, 2.5vw, 38px); font-weight: 500; letter-spacing: -.055em; line-height: 1.25; margin: 0; }
 .profile-info h1 .profile-surname { display: block; }
 .profile-role { color: var(--green); font-size: 14px; margin: 16px 0 24px; }
@@ -106,7 +106,7 @@ button, input { font: inherit; }
 .terminal-current-path { padding: 0; }
 .terminal-input-row { padding: 0 0 10px; }
 .terminal-prompt-area[hidden] { display: none; }
-.completion-list, .history-search { max-width: 1180px; margin: 16px auto 0; }
+.completion-list, .history-search { max-width: var(--content-width); margin: 16px auto 0; }
 .editor-footer { flex: none; font-size: 12px; }
 .editor-status { display: flex; align-items: center; gap: 24px; min-height: 28px; background: var(--surface-0); color: var(--soft-ink); padding-right: 20px; }
 .editor-mode { display: flex; align-items: center; align-self: stretch; padding: 5px 18px; background: var(--accent); color: var(--background); font-weight: 600; }
@@ -128,10 +128,8 @@ button, input { font: inherit; }
   .intro-listing .terminal-listing { font-size: 11px; }
   .boot-command > span:nth-last-child(1) { overflow-wrap: anywhere; }
   .profile-output { grid-template-columns: 1fr; gap: 26px; margin-top: 28px; }
-  .ascii-avatar { font-size: clamp(4px, 1.05vw, 6px); }
   .profile-info { max-width: 440px; width: 100%; justify-self: center; }
   .profile-info h1 { font-size: 28px; }
-  .profile-info h1 .profile-surname { display: inline; margin-left: .3em; }
   .profile-info dl > div { grid-template-columns: 80px 1fr; }
   .terminal-shortcuts > span { flex-basis: 100%; }
   .terminal-input-row input, .input-highlight, .history-search input { font-size: 16px; }
@@ -156,8 +154,8 @@ button, input { font: inherit; }
 .vim-editor { flex: 1; min-height: 0; font-size: 14px; line-height: 1.8; }
 .vim-editor .cm-editor.cm-focused { outline: none; }
 .vim-editor .cm-fat-cursor { background: var(--accent); color: var(--background); }
-.vim-editor .cm-vim-panel { padding: 8px 20px; font-family: inherit; }
-.vim-editor .cm-vim-panel input { color: var(--ink); background: transparent; }
+.vim-workspace .cm-vim-panel { padding: 8px 20px; font-family: inherit; }
+.vim-workspace .cm-vim-panel input { color: var(--ink); background: transparent; }
 .vim-help { display: flex; flex-wrap: wrap; gap: 10px 24px; padding: 16px 24px; font-size: 12px; color: var(--muted); border-bottom: 1px solid var(--line); }
 .vim-workspace .editor-file { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 @media (max-width: 700px) {
@@ -172,7 +170,7 @@ button, input { font: inherit; }
 .tmux-windows { flex: 1; min-height: 0; }
 .tmux-window { height: 100%; }
 .tmux-window[hidden] { display: none; }
-.tmux-footer { width: min(1180px, calc(100% - 2 * var(--terminal-gutter))); margin-inline: auto; flex: none; font-size: 12px; }
+.tmux-footer { width: min(var(--content-width), calc(100% - 2 * var(--terminal-gutter))); margin-inline: auto; flex: none; font-size: 12px; }
 .tmux-bar { display: flex; align-items: stretch; background: var(--surface-0); min-height: 34px; }
 .tmux-session { display: flex; align-items: center; padding: 6px 12px; color: var(--background); background: var(--accent); }
 .tmux-tabs { display: flex; flex: 1; min-width: 0; overflow-x: auto; scrollbar-width: thin; }
@@ -209,3 +207,14 @@ button, input { font: inherit; }
 .intro-listing { margin-top: 24px; }
 .boot-list-command { margin-bottom: 12px; }
 .intro-listing .terminal-listing { line-height: 1.68; }
+
+.vim-command-area { min-height: 35px; color: var(--ink); }
+.vim-command-host:has(.cm-vim-panel) + .vim-command-message { display: none; }
+.vim-command-message { padding: 6px 20px; color: var(--muted); }
+.vim-command-message:empty { padding: 0; }
+.vim-command-host .cm-panels { position: static; border: 0; }
+.vim-command-host input { font: inherit; }
+@media (max-width: 700px) {
+  .vim-workspace .cm-vim-panel, .vim-command-message { padding-inline: 12px; }
+  .vim-command-host input { font-size: 16px; }
+}

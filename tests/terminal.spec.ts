@@ -11,6 +11,7 @@ test("intro types, reveals the portrait, and replays on a repeat visit", async (
   await page.clock.runFor(2000);
   await expect(page.getByRole("heading", { name: "Alberto Sánchez del Álamo" })).toBeVisible();
   await expect(page.getByRole("img", { name: "ASCII portrait" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "skip intro" })).toBeHidden();
   await page.clock.runFor(2000);
   await expect(page.locator(".boot-list-command")).toHaveText("asanch@portfolio~❯ ls");
   await expect(page.locator(".intro-listing")).toContainText("projects/");
@@ -151,7 +152,7 @@ test("mobile editor has usable controls and no horizontal overflow", async ({ pa
   await page.keyboard.type("Mobile edit ");
   await page.getByRole("button", { name: "Esc · normal" }).click();
   await expect(page.locator(".editor-mode")).toHaveText("NORMAL");
-  await page.getByRole("button", { name: "? keys", exact: true }).click();
+  await page.getByRole("button", { name: ":help · keys", exact: true }).click();
   await expect(page.locator(".vim-help")).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.screenshot({ path: "/tmp/vim-mobile.png" });
@@ -258,3 +259,51 @@ test("repeating the intro command replays its animated output without clearing h
   await ex("q");
   await expect(input).toBeFocused();
  });
+
+ test("Vim command input sits between status and tmux bars", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/");
+  const shell = page.getByRole("combobox", { name: "Terminal command" });
+  await shell.fill("nvim about.txt");
+  await shell.press("Enter");
+  await expect(page.getByRole("textbox", { name: "Edit ~/about.txt" })).toBeFocused();
+  await expect(page.getByText("motion help ?", { exact: true })).toHaveCount(0);
+  await expect(page.locator(".vim-command-message")).toBeEmpty();
+  for (const width of [1440, 390]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.keyboard.type(":");
+    const command = page.locator(".vim-command-host input");
+    await expect(command).toBeFocused();
+    const inputBox = await command.boundingBox();
+    const statusBox = await page.locator(".editor-status").boundingBox();
+    const tmuxBox = await page.locator(".tmux-footer").boundingBox();
+    expect(inputBox!.y).toBeGreaterThanOrEqual(statusBox!.y + statusBox!.height);
+    expect(inputBox!.y + inputBox!.height).toBeLessThanOrEqual(tmuxBox!.y);
+    await page.keyboard.press("Escape");
+  }
+ });
+
+test(":help opens key help and ? searches backwards", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/");
+  const shell = page.getByRole("combobox", { name: "Terminal command" });
+  await shell.fill("nvim about.txt");
+  await shell.press("Enter");
+  const editor = page.getByRole("textbox", { name: "Edit ~/about.txt" });
+  await expect(editor).toBeFocused();
+  for (const command of [":help"]) {
+    await page.keyboard.type(command);
+    await page.keyboard.press("Enter");
+    await expect(page.locator(".vim-help")).toBeVisible();
+    await expect(page.getByLabel("Cursor position")).toHaveText("1:1");
+    await expect(editor).toBeFocused();
+    await page.getByRole("button", { name: ":help · keys", exact: true }).click();
+    await expect(page.locator(".vim-help")).toHaveCount(0);
+    await editor.click();
+    await page.keyboard.type("gg0");
+  }
+  await page.keyboard.type("?Madrid");
+  await page.keyboard.press("Enter");
+  await expect(page.getByLabel("Cursor position")).not.toHaveText("1:1");
+  await expect(page.locator(".vim-help")).toHaveCount(0);
+});

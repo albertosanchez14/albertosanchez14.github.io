@@ -1,4 +1,4 @@
-import avatar from "../../ascii?raw";
+import avatar from "../../public/avatar.txt?raw";
 import { listProjects } from "../content/portfolio";
 
 export type TerminalFile = { type: "file"; content: string };
