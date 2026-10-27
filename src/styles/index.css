@@ -1,168 +1,211 @@
+@import "tailwindcss";
+
 :root {
-  font-family: "Chakra Petch", sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-  
-  background: rgb(14,19,61);
-  background: linear-gradient(90deg, rgba(14,19,61,1) 0%, rgba(27,89,115,1) 60%, rgba(27,89,115,1) 100%, rgba(2,0,36,1) 100%);
-  
-  background: rgb(14,19,61);
-  background: linear-gradient(90deg, rgba(14,19,61,1) 0%, rgba(23,67,85,1) 60%, rgba(23,67,85,1) 100%, rgba(2,0,36,1) 100%);
-
-  background: radial-gradient(circle at 50% 50%, #0c185b, #111e4d, #141f3f, #151c32, #131824, #0e1117, #060708, #000000);
-  background: radial-gradient(circle at 50% 50%, #290b5b, #26164d, #23193f, #1e1932, #181625, #111017, #070708, #000000);
-  /* background: radial-gradient(circle at 50% 50%, #290b5b, #221147, #1b1136, #140f26, #0e0b19, #07060c, #020203, #000000); */
-
+  font-family: "IBM Plex Mono", monospace;
+  color: #cdd6f4;
+  background: #1e1e2e;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --background: #1e1e2e; /* Mocha Base */
+  --surface: #181825; /* Mocha Mantle */
+  --crust: #11111b;
+  --surface-0: #313244;
+  --line: #45475a; /* Mocha Surface 1 */
+  --surface-2: #585b70;
+  --overlay-1: #7f849c;
+  --ink: #cdd6f4; /* Mocha Text */
+  --soft-ink: #bac2de; /* Mocha Subtext 1 */
+  --muted: #a6adc8; /* Mocha Subtext 0 */
+  --accent: #cba6f7; /* Mocha Mauve */
+  --accent-hover: #b4befe; /* Mocha Lavender */
+  --error: #f38ba8; /* Mocha Red */
+  --blue: #89b4fa; /* Mocha Blue */
+  --green: #89b4fa; /* Blue for shell success and profile accents */
 }
 
-a {
-  font-weight: 500;
-  /* color: #646cff; */
-  color: white;
-  text-decoration: inherit;
+* { box-sizing: border-box; }
+html { scroll-behavior: auto; }
+body { margin: 0; min-width: 320px; }
+::selection { color: var(--background); background: var(--accent); }
+a { color: inherit; text-decoration: none; }
+button, input { font: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.terminal-line { min-height: 1.68em; color: var(--soft-ink); font-size: 13px; line-height: 1.68; white-space: pre-wrap; overflow-wrap: anywhere; }
+.terminal-line--command { margin: 17px 0 7px; color: var(--ink); }
+.terminal-line--command:first-child { margin-top: 0; }
+.command-symbol { color: var(--accent); }
+.boot-command .command-symbol, .boot-list-command .command-symbol { font-size: 13px; line-height: inherit; }
+.command-symbol--error { color: var(--error); }
+.terminal-line--accent { color: var(--ink); font-size: 18px; font-weight: 600; }
+.terminal-line--muted { color: var(--muted); margin-top: 14px; }
+.terminal-line--error { color: var(--error); }
+.terminal-line a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.terminal-entry { display: inline-flex; gap: 11px; align-items: center; padding: 2px 5px 2px 0; border: 0; color: var(--ink); background: transparent; text-align: left; cursor: pointer; }
+.terminal-entry--directory { color: var(--blue); }
+.terminal-entry .entry-icon { color: var(--muted); }
+.terminal-line--entry { margin: 2px 0; }
+.terminal-line--entry .entry-icon { color: var(--accent); }
+
+.terminal-prompt-area { margin-top: 24px; }
+.terminal-current-path { padding: 0 30px; color: var(--blue); font-size: 12px; }
+.terminal-input-row { display: flex; align-items: center; gap: 11px; min-height: 43px; padding: 0 24px 28px 30px; }
+.prompt-symbol { color: var(--accent); font-size: 13px; line-height: 1.68; }
+.prompt-symbol--error { color: var(--error); }
+.terminal-input-wrap { position: relative; flex: 1; min-width: 0; height: 28px; }
+.input-highlight { position: absolute; inset: 0; overflow: hidden; white-space: pre; color: var(--ink); font-size: 13px; line-height: 28px; pointer-events: none; }
+.syntax-valid { color: var(--green); }
+.syntax-invalid { color: var(--error); }
+.syntax-suggestion { color: var(--overlay-1); }
+.terminal-input-row input { position: relative; width: 100%; height: 28px; min-width: 0; padding: 0; border: 0; outline: none; background: transparent; color: transparent; -webkit-text-fill-color: transparent; caret-color: var(--accent); font-size: 13px; line-height: 28px; }
+.terminal-input-row input:focus-visible { outline: none; }
+.terminal-submit { display: none; flex: none; width: 30px; height: 28px; border: 1px solid var(--line); background: transparent; color: var(--accent); cursor: pointer; }
+.completion-list, .history-search { padding: 13px 30px; border-top: 1px solid var(--line); background: var(--surface-0); }
+.completion-heading, .history-search label { display: block; margin-bottom: 7px; color: var(--muted); font-size: 11px; }
+.completion-body--preview { display: grid; grid-template-columns: minmax(0, 1fr) minmax(170px, .65fr); gap: 16px; }
+.completion-list button, .history-results button { display: block; width: 100%; padding: 5px 9px; border: 0; background: transparent; color: var(--ink); text-align: left; font-size: 12px; cursor: pointer; }
+.completion-list .completion-active, .history-results .completion-active { background: var(--line); color: var(--accent); }
+.completion-preview { border-left: 1px solid var(--line); padding-left: 14px; color: var(--soft-ink); font-size: 11px; line-height: 1.7; overflow-wrap: anywhere; }
+.completion-preview > span { display: block; margin-bottom: 5px; color: var(--muted); }
+.completion-preview .preview-directory { color: var(--blue); }
+.history-search input { width: 100%; padding: 6px 9px; border: 1px solid var(--line); outline: none; background: var(--surface); color: var(--ink); font-size: 12px; }
+.history-results { max-height: 155px; overflow: auto; margin-top: 7px; }
+.history-results > span { color: var(--muted); font-size: 12px; }
+
+.site-shell { height: 100dvh; }
+.terminal-window { --terminal-gutter: clamp(20px, 5vw, 80px); height: 100%; display: flex; flex-direction: column; background: var(--background); color: var(--ink); }
+.theme-carbon { --background: #101016; --surface: #181822; --surface-0: #252535; --line: #3e3c58; --ink: #e2e0f0; --soft-ink: #c5c2d8; --muted: #aaa6c0; --accent: #b69af7; --accent-hover: #cec0ff; --blue: #8caeff; --green: #8caeff; }
+.terminal-window > .editor-footer, .terminal-window > .vim-workspace { width: min(1180px, calc(100% - 2 * var(--terminal-gutter))); margin-inline: auto; }
+.terminal-viewport { flex: 1; min-height: 0; overflow: auto; scrollbar-color: var(--line) transparent; scrollbar-width: thin; padding: clamp(28px, 5vh, 60px) var(--terminal-gutter) 30px; }
+.terminal-intro, .terminal-content, .terminal-prompt-area { max-width: 1180px; margin-left: auto; margin-right: auto; }
+.boot-command, .boot-list-command, .intro-listing .terminal-listing { font-size: 13px; }
+.boot-command, .boot-list-command { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; min-height: 24px; }
+.shell-user { color: var(--green); }
+.shell-path { color: var(--blue); }
+.block-cursor { display: inline-block; height: 16px; width: 8px; background: var(--accent); animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.skip-intro { margin-top: 24px; border: 0; padding: 8px 0; background: none; color: var(--muted); cursor: pointer; font-size: 12px; }
+.profile-output { display: grid; grid-template-columns: minmax(0, 470px) minmax(0, 1fr); align-items: center; gap: clamp(32px, 5vw, 80px); margin: 38px 0 32px; }
+.ascii-avatar { margin: 0; font-family: monospace; font-size: clamp(4px, .55vw, 7px); line-height: 1.05; white-space: pre; color: var(--accent); justify-self: center; user-select: none; }
+.profile-comment { font-size: 12px; color: var(--muted); margin: 0 0 18px; }
+.profile-info h1 { font-size: clamp(24px, 2.5vw, 38px); font-weight: 500; letter-spacing: -.055em; line-height: 1.25; margin: 0; }
+.profile-info h1 .profile-surname { display: block; }
+.profile-role { color: var(--green); font-size: 14px; margin: 16px 0 24px; }
+.profile-info dl { font-size: 12px; line-height: 1.8; margin: 0; }
+.profile-info dl > div { display: grid; grid-template-columns: 90px 1fr; gap: 10px; margin: 7px 0; }
+.profile-info dt { color: var(--blue); }
+.profile-info dd { color: var(--soft-ink); margin: 0; }
+.profile-links { display: flex; flex-wrap: wrap; gap: 22px; margin: 24px 0; font-size: 12px; color: var(--accent); }
+.terminal-palette { display: flex; }
+.terminal-palette i { width: 24px; height: 13px; }
+.terminal-shortcuts { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; border-top: 1px solid var(--surface-0); padding: 20px 0 8px; font-size: 12px; }
+.terminal-shortcuts > span { color: var(--muted); margin-right: auto; }
+.terminal-shortcuts button { border: 0; padding: 6px 0; background: none; color: var(--blue); cursor: pointer; }
+.terminal-content { padding-top: 12px; }
+.terminal-current-path { padding: 0; }
+.terminal-input-row { padding: 0 0 10px; }
+.terminal-prompt-area[hidden] { display: none; }
+.completion-list, .history-search { max-width: 1180px; margin: 16px auto 0; }
+.editor-footer { flex: none; font-size: 12px; }
+.editor-status { display: flex; align-items: center; gap: 24px; min-height: 28px; background: var(--surface-0); color: var(--soft-ink); padding-right: 20px; }
+.editor-mode { display: flex; align-items: center; align-self: stretch; padding: 5px 18px; background: var(--accent); color: var(--background); font-weight: 600; }
+.editor-file { flex: 1; }
+.editor-command { min-height: 35px; display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 6px 20px; color: var(--muted); }
+.editor-command button { border: 0; background: none; padding: 4px 0; color: var(--accent); cursor: pointer; }
+.editor-command button span { color: var(--muted); margin-left: 10px; }
+.not-found { min-height: 100dvh; display: grid; place-content: center; text-align: center; gap: 20px; }
+.not-found a { color: var(--accent); }
+@media (hover: hover) and (pointer: fine) {
+  a:hover, .terminal-shortcuts button:hover, .editor-command button:hover, .skip-intro:hover { color: var(--accent-hover); text-decoration: underline; text-underline-offset: 4px; }
+  .terminal-entry:hover, .completion-list button:hover, .history-results button:hover { color: var(--accent-hover); }
+}
+@media (hover: none) { .terminal-submit { display: block; } }
+@media (max-width: 700px) {
+  .terminal-window { --terminal-gutter: 20px; }
+  .terminal-viewport { padding: 26px 20px 20px; }
+  .boot-command, .boot-list-command { font-size: 11px; gap: 8px; }
+  .intro-listing .terminal-listing { font-size: 11px; }
+  .boot-command > span:nth-last-child(1) { overflow-wrap: anywhere; }
+  .profile-output { grid-template-columns: 1fr; gap: 26px; margin-top: 28px; }
+  .ascii-avatar { font-size: clamp(4px, 1.05vw, 6px); }
+  .profile-info { max-width: 440px; width: 100%; justify-self: center; }
+  .profile-info h1 { font-size: 28px; }
+  .profile-info h1 .profile-surname { display: inline; margin-left: .3em; }
+  .profile-info dl > div { grid-template-columns: 80px 1fr; }
+  .terminal-shortcuts > span { flex-basis: 100%; }
+  .terminal-input-row input, .input-highlight, .history-search input { font-size: 16px; }
+  .completion-body--preview { grid-template-columns: 1fr; }
+  .completion-preview, .status-detail { display: none; }
+  .editor-status { gap: 14px; font-size: 10px; }
+  .editor-command { padding: 6px 12px; font-size: 10px; }
+  .editor-command button span { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .block-cursor { animation: none; } }
+
+.reveal-text { white-space: pre-wrap; }
+.ascii-avatar .reveal-text { white-space: pre; }
+
+.editor-open { border: 0; cursor: pointer; font: inherit; font-weight: 600; }
+.editor-open:hover { background: var(--accent-hover); }
+.vim-workspace { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.vim-toolbar { display: flex; align-items: center; gap: 20px; padding: 12px 24px; border-bottom: 1px solid var(--line); font-size: 12px; }
+.vim-title { flex: 1; color: var(--accent); overflow-wrap: anywhere; min-width: 0; }
+.vim-toolbar button { border: 0; background: transparent; color: var(--soft-ink); cursor: pointer; padding: 6px 0; }
+.vim-toolbar button:hover { color: var(--accent); }
+.vim-editor { flex: 1; min-height: 0; font-size: 14px; line-height: 1.8; }
+.vim-editor .cm-editor.cm-focused { outline: none; }
+.vim-editor .cm-fat-cursor { background: var(--accent); color: var(--background); }
+.vim-editor .cm-vim-panel { padding: 8px 20px; font-family: inherit; }
+.vim-editor .cm-vim-panel input { color: var(--ink); background: transparent; }
+.vim-help { display: flex; flex-wrap: wrap; gap: 10px 24px; padding: 16px 24px; font-size: 12px; color: var(--muted); border-bottom: 1px solid var(--line); }
+.vim-workspace .editor-file { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@media (max-width: 700px) {
+  .vim-toolbar { padding: 10px 14px; gap: 14px; flex-wrap: wrap; }
+  .vim-title { flex-basis: 100%; }
+  .vim-editor { font-size: 16px; }
+  .vim-help { max-height: 180px; overflow: auto; }
+  .vim-workspace .editor-command { align-items: flex-start; }
 }
 
-body {
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  min-width: 320px;
-  min-height: 100vh;
+.tmux-shell { --terminal-gutter: clamp(20px, 5vw, 80px); display: flex; flex-direction: column; background: var(--background); color: var(--ink); }
+.tmux-windows { flex: 1; min-height: 0; }
+.tmux-window { height: 100%; }
+.tmux-window[hidden] { display: none; }
+.tmux-footer { width: min(1180px, calc(100% - 2 * var(--terminal-gutter))); margin-inline: auto; flex: none; font-size: 12px; }
+.tmux-bar { display: flex; align-items: stretch; background: var(--surface-0); min-height: 34px; }
+.tmux-session { display: flex; align-items: center; padding: 6px 12px; color: var(--background); background: var(--accent); }
+.tmux-tabs { display: flex; flex: 1; min-width: 0; overflow-x: auto; scrollbar-width: thin; }
+.tmux-footer button { border: 0; background: transparent; color: var(--soft-ink); padding: 7px 12px; cursor: pointer; white-space: nowrap; }
+.tmux-tabs button[aria-selected="true"] { color: var(--accent); background: var(--line); }
+.tmux-footer button:hover { color: var(--accent-hover); background: var(--surface); }
+.tmux-footer button:focus-visible { outline-offset: -2px; }
+.tmux-footer button:disabled { opacity: .35; cursor: default; }
+.tmux-hint { padding: 7px 12px; color: var(--muted); font-size: 11px; }
+.tmux-rename { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; padding: 10px 12px; border: 1px solid var(--line); background: var(--surface); }
+.tmux-rename input { flex: 1; min-width: 80px; padding: 5px; border: 1px solid var(--line); color: var(--ink); background: var(--background); }
+@media (max-width: 700px) {
+  .tmux-shell { --terminal-gutter: 20px; }
+  .tmux-footer { font-size: 11px; }
+  .tmux-session, .tmux-footer button { padding-inline: 8px; }
+  .tmux-session { font-size: 10px; }
+  .tmux-hint { font-size: 10px; }
+  .tmux-rename input { font-size: 16px; }
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+/* Shell output uses plain names, fixed columns and ANSI-style directory color. */
+.terminal-listing { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 24ch), 1fr)); gap: 0 3ch; max-width: 100%; }
+.terminal-listing .terminal-entry { display: block; min-width: 0; padding: 0; line-height: 1.68; overflow-wrap: anywhere; }
+.terminal-entry--directory { font-weight: 600; }
+.theme-nord, .theme-dracula, .theme-gruvbox { --background: oklch(0.24 0.025 var(--theme-hue)); --surface: oklch(0.2 0.025 var(--theme-hue)); --crust: oklch(0.17 0.02 var(--theme-hue)); --surface-0: oklch(0.31 0.03 var(--theme-hue)); --line: oklch(0.42 0.03 var(--theme-hue)); --surface-2: oklch(0.48 0.03 var(--theme-hue)); --overlay-1: oklch(0.65 0.03 var(--theme-hue)); --ink: oklch(0.92 0.02 var(--theme-hue)); --soft-ink: oklch(0.85 0.025 var(--theme-hue)); --muted: oklch(0.77 0.03 var(--theme-hue)); --accent: oklch(0.8 0.1 var(--theme-accent)); --accent-hover: oklch(0.9 0.06 var(--theme-accent)); --blue: oklch(0.8 0.08 240); --green: oklch(0.83 0.1 145); --error: oklch(0.78 0.12 20); }
+.theme-nord { --theme-hue: 255; --theme-accent: 210; color-scheme: dark; }
+.theme-dracula { --theme-hue: 295; --theme-accent: 310; color-scheme: dark; }
+.theme-gruvbox { --theme-hue: 75; --theme-accent: 85; --blue: oklch(0.8 0.08 180); color-scheme: dark; }
+.theme-carbon, .theme-mocha { color-scheme: dark; }
+.theme-paper { color-scheme: light; --background: oklch(0.97 0.012 85); --surface: oklch(0.94 0.014 85); --crust: oklch(0.9 0.016 85); --surface-0: oklch(0.9 0.02 85); --line: oklch(0.77 0.025 85); --surface-2: oklch(0.7 0.025 85); --overlay-1: oklch(0.52 0.025 85); --ink: oklch(0.29 0.025 65); --soft-ink: oklch(0.36 0.025 65); --muted: oklch(0.46 0.025 65); --accent: oklch(0.43 0.12 295); --accent-hover: oklch(0.34 0.13 295); --blue: oklch(0.43 0.1 245); --green: oklch(0.43 0.08 160); --error: oklch(0.45 0.15 25); }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+@media (max-width: 700px) { .editor-command > span { display: none; } }
 
-/* @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
-
-
-.chakra-petch-light {
-  font-family: "Chakra Petch", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-}
-
-.chakra-petch-regular {
-  font-family: "Chakra Petch", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.chakra-petch-medium {
-  font-family: "Chakra Petch", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-}
-
-.chakra-petch-semibold {
-  font-family: "Chakra Petch", sans-serif;
-  font-weight: 600;
-  font-style: normal;
-}
-
-.chakra-petch-bold {
-  font-family: "Chakra Petch", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.chakra-petch-light-italic {
-  font-family: "Chakra Petch", sans-serif;
-  font-weight: 300;
-  font-style: italic;
-}
-
-.chakra-petch-regular-italic {
-  font-family: "Chakra Petch", sans-serif;
-  font-weight: 400;
-  font-style: italic;
-}
-
-.chakra-petch-medium-italic {
-  font-family: "Chakra Petch", sans-serif;
-  font-weight: 500;
-  font-style: italic;
-}
-
-.chakra-petch-semibold-italic {
-  font-family: "Chakra Petch", sans-serif;
-  font-weight: 600;
-  font-style: italic;
-}
-
-.chakra-petch-bold-italic {
-  font-family: "Chakra Petch", sans-serif;
-  font-weight: 700;
-  font-style: italic;
-}
-
-@keyframes slide-down {
-  from {
-    transform: translateY(-50%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slide-right {
-  from {
-    transform: translateX(-20%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes curtain-slide {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
+.intro-listing { margin-top: 24px; }
+.boot-list-command { margin-bottom: 12px; }
+.intro-listing .terminal-listing { line-height: 1.68; }
