@@ -1,15 +1,15 @@
 import { themes, type Theme } from "../themes";
 import { readDraft } from "../editor-drafts";
 import RevealText from "./RevealText";
-import avatar from "../../../ascii?raw";
-import { lazy, Suspense, useEffect, useId, useRef, useState } from "react";
+import avatar from "../../../public/avatar.txt?raw";
+import { lazy, Suspense, useCallback, useEffect, useId, useRef, useState } from "react";
 import { displayPath, fileSystem, getNode, resolvePath, type TerminalDirectory, type TerminalNode } from "../terminal-files";
 import { completions, fuzzyDirectory, fuzzyMatch, shellCommands } from "../terminal-interaction";
 
 const VimEditor = lazy(() => import("./VimEditor"));
 
 type Entry = { name: string; path: string[]; type: TerminalNode["type"] };
-type Line = { id: number; kind: "command" | "output" | "muted" | "accent" | "error" | "entry" | "profile"; text: string; entry?: Entry; entries?: Entry[]; success?: boolean };
+type Line = { id: number; kind: "command" | "output" | "muted" | "accent" | "error" | "entry" | "profile" | "avatar"; text: string; entry?: Entry; entries?: Entry[]; success?: boolean };
 
 const introCommand = "cat avatar.txt about.txt";
 const bootLines: Line[] = [];
@@ -37,10 +37,9 @@ function ProfileOutput({ instant = false }: { instant?: boolean }) {
   return <div className="profile-output">
           <pre className="ascii-avatar" role="img" aria-label="ASCII portrait of Alberto Sánchez"><RevealText text={avatar} diffusion instant={instant} /></pre>
           <div className="profile-info">
-            <p className="profile-comment"><RevealText text="# about.txt" delay={150} instant={instant} /></p>
             <h1><RevealText text="Alberto Sánchez" delay={250} instant={instant} /><span className="profile-surname"><RevealText text="del Álamo" delay={400} instant={instant} /></span></h1>
             <p className="profile-role"><RevealText text="Software Engineer" delay={550} instant={instant} /></p>
-            <dl><div><dt>location</dt><dd><RevealText text="Madrid, Spain" delay={650} instant={instant} /></dd></div><div><dt>education</dt><dd><RevealText text="Universidad Carlos III de Madrid" delay={730} instant={instant} /><br /><RevealText text="University of Waterloo" delay={810} instant={instant} /></dd></div><div><dt>work</dt><dd><RevealText text="Software Engineer at GMV" delay={890} instant={instant} /></dd></div></dl>
+            <dl><div><dt>location</dt><dd><RevealText text="Madrid, Spain" delay={650} instant={instant} /></dd></div><div><dt>position</dt><dd><RevealText text="Software Engineer at GMV" delay={730} instant={instant} /></dd></div><div><dt>education</dt><dd><RevealText text="Universidad Carlos III de Madrid" delay={810} instant={instant} /><br /><RevealText text="University of Waterloo" delay={890} instant={instant} /></dd></div></dl>
             <div className="profile-links"><a href="mailto:alberto.sanchez.delalamo@gmail.com">email ↗</a><a href="https://github.com/albertosanchez14" target="_blank" rel="noreferrer">github ↗</a><a href="https://linkedin.com/in/alberto-sanchez-del-alamo" target="_blank" rel="noreferrer">linkedin ↗</a></div>
             <div className="terminal-palette" aria-hidden="true">{["#f38ba8", "#fab387", "#f9e2af", "#a6e3a1", "#89dceb", "#89b4fa", "#cba6f7", "#cdd6f4"].map((color) => <i key={color} style={{ background: color }} />)}</div>
           </div>
@@ -73,6 +72,32 @@ export default function PortfolioTerminal({ theme, onThemeChange, skipIntro = fa
   const historyQueryRef = useRef<{ prefix: string; index: number } | null>(null);
   const visits = useRef<Record<string, number>>({});
   const searchRef = useRef<HTMLInputElement>(null);
+
+  const finishIntro = useCallback(() => {
+    setSkipReveal(true);
+    setIntroDone(true);
+    setListingTyped(3);
+  }, []);
+
+  useEffect(() => {
+    if (introDone && listingTyped === 3) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Enter" || event.defaultPrevented || event.isComposing || event.ctrlKey || event.altKey || event.metaKey || event.shiftKey) return;
+      if (!outputRef.current || outputRef.current.closest("[hidden]")) return;
+      // Leave Enter on focused controls to their native action.
+      if (event.target instanceof Element && event.target.closest("a, button, input, textarea, select, [contenteditable]")) return;
+      event.preventDefault();
+      finishIntro();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [introDone, listingTyped, finishIntro]);
+
+  useEffect(() => {
+    if (introDone && listingTyped === 3 && !outputRef.current?.closest("[hidden]")) {
+      inputRef.current?.focus();
+    }
+  }, [introDone, listingTyped]);
 
   useEffect(() => {
     if (introDone) return;
@@ -215,7 +240,7 @@ export default function PortfolioTerminal({ theme, onThemeChange, skipIntro = fa
             const file = getNode(resolvePath(path, filename));
             if (!file) add("error", `cat: ${filename}: No such file`);
             else if (file.type !== "file") add("error", `cat: ${filename}: Is a directory`);
-            else add("output", readDraft(displayPath(resolvePath(path, filename)), file.content));
+            else add(resolvePath(path, filename).join("/") === "avatar.txt" ? "avatar" : "output", readDraft(displayPath(resolvePath(path, filename)), file.content));
           }
         }
         break;
@@ -335,7 +360,7 @@ export default function PortfolioTerminal({ theme, onThemeChange, skipIntro = fa
       }}>
       {showProfile && <div className="terminal-intro">
         <div className="boot-command"><span className="shell-user">asanch@portfolio</span><span className="shell-path">~</span><span className="command-symbol">❯</span> <span>{introDone ? introCommand : introCommand.slice(0, typed)}</span>{!introDone && <span className="block-cursor" aria-hidden="true" />}</div>
-        {!introDone && <button className="skip-intro" onClick={() => { setSkipReveal(true); setIntroDone(true); }}>skip intro ↵</button>}
+        {!introDone && <button className="skip-intro" onClick={finishIntro}>skip intro ↵</button>}
         {introDone && <ProfileOutput instant={skipReveal} />}
         {introDone && listingTyped >= 0 && <div className="intro-listing">
           <div className="boot-list-command"><span className="shell-user">asanch@portfolio</span><span className="shell-path">~</span><span className="command-symbol">❯</span> {"ls".slice(0, listingTyped)}{listingTyped < 3 && <span className="block-cursor" aria-hidden="true" />}</div>
@@ -345,7 +370,7 @@ export default function PortfolioTerminal({ theme, onThemeChange, skipIntro = fa
       <div className="terminal-content" aria-live="polite" aria-relevant="additions text">
         {lines.map((line) => (
           <div className={line.kind === "profile" ? "terminal-profile-result" : `terminal-line terminal-line--${line.kind}`} key={line.id}>
-            {line.kind === "profile" ? <ProfileOutput /> : line.entries || line.entry ? (
+            {line.kind === "profile" ? <ProfileOutput /> : line.kind === "avatar" ? <pre className="ascii-avatar" role="img" aria-label="ASCII portrait of Alberto Sánchez">{line.text}</pre> : line.entries || line.entry ? (
               <div className="terminal-listing">{(line.entries ?? [line.entry!]).map((entry) => <button key={entry.name} type="button" className={`terminal-entry ${entry.type === "directory" ? "terminal-entry--directory" : ""}`} onClick={() => run(`${entry.type === "directory" ? "cd" : "cat"} ${displayPath(entry.path)}`)}>{entry.name}{entry.type === "directory" ? "/" : ""}</button>)}</div>
             ) : line.kind === "command" ? <><span className={`command-symbol ${line.success === false ? "command-symbol--error" : ""}`}>❯</span> {linkedText(line.text)}</> : linkedText(line.text)}
           </div>
